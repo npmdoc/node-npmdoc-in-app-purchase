@@ -1,0 +1,2899 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/voltrue2/in-app-purchase"
+
+    >in-app-purchase (v1.3.1)</a>
+</h1>
+<h4>In-App-Purchase validation and subscription management for iOS, Android, Amazon, and Windows</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.in-app-purchase">module in-app-purchase</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.config">
+            function <span class="apidocSignatureSpan">in-app-purchase.</span>config
+            <span class="apidocSignatureSpan">(configIn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.getPurchaseData">
+            function <span class="apidocSignatureSpan">in-app-purchase.</span>getPurchaseData
+            <span class="apidocSignatureSpan">(purchaseData, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.isExpired">
+            function <span class="apidocSignatureSpan">in-app-purchase.</span>isExpired
+            <span class="apidocSignatureSpan">(purchasedItem)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.isValidated">
+            function <span class="apidocSignatureSpan">in-app-purchase.</span>isValidated
+            <span class="apidocSignatureSpan">(response)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.refreshGoogleToken">
+            function <span class="apidocSignatureSpan">in-app-purchase.</span>refreshGoogleToken
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.request">
+            function <span class="apidocSignatureSpan">in-app-purchase.</span>request
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.reset">
+            function <span class="apidocSignatureSpan">in-app-purchase.</span>reset
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.setup">
+            function <span class="apidocSignatureSpan">in-app-purchase.</span>setup
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.validate">
+            function <span class="apidocSignatureSpan">in-app-purchase.</span>validate
+            <span class="apidocSignatureSpan">(service, receipt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.validateOnce">
+            function <span class="apidocSignatureSpan">in-app-purchase.</span>validateOnce
+            <span class="apidocSignatureSpan">(service, secretOrPubKey, receipt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">in-app-purchase.</span>amazon</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">in-app-purchase.</span>amazon2</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">in-app-purchase.</span>amazonManager</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">in-app-purchase.</span>apple</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">in-app-purchase.</span>async</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">in-app-purchase.</span>google</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">in-app-purchase.</span>responseData</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">in-app-purchase.</span>verbose</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">in-app-purchase.</span>windows</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">in-app-purchase.</span>AMAZON</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">in-app-purchase.</span>APPLE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">in-app-purchase.</span>GOOGLE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">in-app-purchase.</span>WINDOWS</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.in-app-purchase.amazon">module in-app-purchase.amazon</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.amazon.getPurchaseData">
+            function <span class="apidocSignatureSpan">in-app-purchase.amazon.</span>getPurchaseData
+            <span class="apidocSignatureSpan">(purchase)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.amazon.readConfig">
+            function <span class="apidocSignatureSpan">in-app-purchase.amazon.</span>readConfig
+            <span class="apidocSignatureSpan">(configIn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.amazon.setup">
+            function <span class="apidocSignatureSpan">in-app-purchase.amazon.</span>setup
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.amazon.validatePurchase">
+            function <span class="apidocSignatureSpan">in-app-purchase.amazon.</span>validatePurchase
+            <span class="apidocSignatureSpan">(dSecret, receipt, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.in-app-purchase.amazon2">module in-app-purchase.amazon2</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.amazon2.getPurchaseData">
+            function <span class="apidocSignatureSpan">in-app-purchase.amazon2.</span>getPurchaseData
+            <span class="apidocSignatureSpan">(purchase)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.amazon2.readConfig">
+            function <span class="apidocSignatureSpan">in-app-purchase.amazon2.</span>readConfig
+            <span class="apidocSignatureSpan">(configIn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.amazon2.setup">
+            function <span class="apidocSignatureSpan">in-app-purchase.amazon2.</span>setup
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.amazon2.validatePurchase">
+            function <span class="apidocSignatureSpan">in-app-purchase.amazon2.</span>validatePurchase
+            <span class="apidocSignatureSpan">(dSecret, receipt, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.in-app-purchase.amazonManager">module in-app-purchase.amazonManager</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.amazonManager.create">
+            function <span class="apidocSignatureSpan">in-app-purchase.amazonManager.</span>create
+            <span class="apidocSignatureSpan">(_config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.in-app-purchase.apple">module in-app-purchase.apple</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.apple.getPurchaseData">
+            function <span class="apidocSignatureSpan">in-app-purchase.apple.</span>getPurchaseData
+            <span class="apidocSignatureSpan">(purchase, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.apple.readConfig">
+            function <span class="apidocSignatureSpan">in-app-purchase.apple.</span>readConfig
+            <span class="apidocSignatureSpan">(configIn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.apple.setup">
+            function <span class="apidocSignatureSpan">in-app-purchase.apple.</span>setup
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.apple.validatePurchase">
+            function <span class="apidocSignatureSpan">in-app-purchase.apple.</span>validatePurchase
+            <span class="apidocSignatureSpan">(secret, receipt, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.in-app-purchase.async">module in-app-purchase.async</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.async.each">
+            function <span class="apidocSignatureSpan">in-app-purchase.async.</span>each
+            <span class="apidocSignatureSpan">(list, handler, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.async.eachSeries">
+            function <span class="apidocSignatureSpan">in-app-purchase.async.</span>eachSeries
+            <span class="apidocSignatureSpan">(list, handler, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.async.forEach">
+            function <span class="apidocSignatureSpan">in-app-purchase.async.</span>forEach
+            <span class="apidocSignatureSpan">(list, handler, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.async.parallel">
+            function <span class="apidocSignatureSpan">in-app-purchase.async.</span>parallel
+            <span class="apidocSignatureSpan">(list, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.async.series">
+            function <span class="apidocSignatureSpan">in-app-purchase.async.</span>series
+            <span class="apidocSignatureSpan">(list, done)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.in-app-purchase.google">module in-app-purchase.google</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.google.getPurchaseData">
+            function <span class="apidocSignatureSpan">in-app-purchase.google.</span>getPurchaseData
+            <span class="apidocSignatureSpan">(purchase)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.google.readConfig">
+            function <span class="apidocSignatureSpan">in-app-purchase.google.</span>readConfig
+            <span class="apidocSignatureSpan">(configIn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.google.refreshToken">
+            function <span class="apidocSignatureSpan">in-app-purchase.google.</span>refreshToken
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.google.reset">
+            function <span class="apidocSignatureSpan">in-app-purchase.google.</span>reset
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.google.setup">
+            function <span class="apidocSignatureSpan">in-app-purchase.google.</span>setup
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.google.validatePurchase">
+            function <span class="apidocSignatureSpan">in-app-purchase.google.</span>validatePurchase
+            <span class="apidocSignatureSpan">(dPubkey, receipt, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.in-app-purchase.request">module in-app-purchase.request</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.request.request">
+            function <span class="apidocSignatureSpan">in-app-purchase.</span>request
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.request.del">
+            function <span class="apidocSignatureSpan">in-app-purchase.request.</span>del
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.request.get">
+            function <span class="apidocSignatureSpan">in-app-purchase.request.</span>get
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.request.head">
+            function <span class="apidocSignatureSpan">in-app-purchase.request.</span>head
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.request.patch">
+            function <span class="apidocSignatureSpan">in-app-purchase.request.</span>patch
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.request.post">
+            function <span class="apidocSignatureSpan">in-app-purchase.request.</span>post
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.request.put">
+            function <span class="apidocSignatureSpan">in-app-purchase.request.</span>put
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.in-app-purchase.responseData">module in-app-purchase.responseData</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.responseData.parse">
+            function <span class="apidocSignatureSpan">in-app-purchase.responseData.</span>parse
+            <span class="apidocSignatureSpan">(response)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.in-app-purchase.verbose">module in-app-purchase.verbose</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.verbose.log">
+            function <span class="apidocSignatureSpan">in-app-purchase.verbose.</span>log
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.verbose.setup">
+            function <span class="apidocSignatureSpan">in-app-purchase.verbose.</span>setup
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.in-app-purchase.windows">module in-app-purchase.windows</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.windows.getPurchaseData">
+            function <span class="apidocSignatureSpan">in-app-purchase.windows.</span>getPurchaseData
+            <span class="apidocSignatureSpan">(purchase, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.windows.readConfig">
+            function <span class="apidocSignatureSpan">in-app-purchase.windows.</span>readConfig
+            <span class="apidocSignatureSpan">(configIn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.windows.validatePurchase">
+            function <span class="apidocSignatureSpan">in-app-purchase.windows.</span>validatePurchase
+            <span class="apidocSignatureSpan">(receipt, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.in-app-purchase" id="apidoc.module.in-app-purchase">module in-app-purchase</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.config" id="apidoc.element.in-app-purchase.config">
+        function <span class="apidocSignatureSpan">in-app-purchase.</span>config
+        <span class="apidocSignatureSpan">(configIn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">config = function (configIn) {
+	apple.readConfig(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.setup(configIn);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
+
+### Debug Logging
+
+The module can optionally turn on verbose debug log.
+
+In order to enable the verbose logging, give the following to `.<span class="apidocCodeKeywordSpan">config</span>()` **BEFORE**
+calling `.setup([callback])`:
+
+```javascript
+var iap = require(&#x27;in-app-purchase&#x27;);
+iap.config({
+	verbose: true
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.getPurchaseData" id="apidoc.element.in-app-purchase.getPurchaseData">
+        function <span class="apidocSignatureSpan">in-app-purchase.</span>getPurchaseData
+        <span class="apidocSignatureSpan">(purchaseData, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPurchaseData = function (purchaseData, options) {
+	if (!purchaseData || !purchaseData.service) {
+		return null;
+	}
+	switch (purchaseData.service) {
+		case module.exports.APPLE:
+			return apple.getPurchaseData(purchaseData, options);
+		case module.exports.GOOGLE:
+			return google.getPurchaseData(purchaseData, options);
+		case module.exports.WINDOWS:
+			return windows.getPurchaseData(purchaseData, options);
+		case module.exports.AMAZON:
+			return amazon.getPurchaseData(purchaseData, options);
+		default:
+			return null;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
+
+#### .isValidated(response [object])
+
+Returns a boolean.
+
+#### .<span class="apidocCodeKeywordSpan">getPurchaseData</span>(response [object], options [*object]);
+
+Returns a parsed purchase data as an array.
+
+For apple and windows, the returned array may contain more than 1 purchase data.
+
+For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
+`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.isExpired" id="apidoc.element.in-app-purchase.isExpired">
+        function <span class="apidocSignatureSpan">in-app-purchase.</span>isExpired
+        <span class="apidocSignatureSpan">(purchasedItem)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isExpired = function (purchasedItem) {
+	if (!purchasedItem || !purchasedItem.transactionId) {
+		throw new Error(&#x27;invalid purchased item given:\n&#x27; + JSON.stringify(purchasedItem));
+	}
+	if (purchasedItem.cancellationDate) {
+		// it has been cancelled
+		return true;
+	}
+	if (!purchasedItem.expirationDate) {
+		// there is no exipiration date with this item
+		return false;
+	}
+	if (Date.now() - purchasedItem.expirationDate &#x3e;= 0) {
+		return true;
+	}
+	// has not exipired yet
+	return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+                ]
+            */
+        }
+    });
+});
+```
+
+#### .<span class="apidocCodeKeywordSpan">isExpired</span>(purchaseDataItem [object])
+
+Returns `true` if a purchased item has been expired.
+
+**NOTE:** This function is for `windows` and `apple` iTunes (recurring subscription only). This can also be used for `google` subscriptions
+ since you provide google play store api information.
+
+
+Example For Checking Expiration Manually:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.isValidated" id="apidoc.element.in-app-purchase.isValidated">
+        function <span class="apidocSignatureSpan">in-app-purchase.</span>isValidated
+        <span class="apidocSignatureSpan">(response)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isValidated = function (response) {
+	if (response &#x26;&#x26; response.status === constants.VALIDATION.SUCCESS) {
+		return true;
+	}
+	return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### .validateOnce(service [constant], secretOrPubKey [string], receipt [string or object], callback [function]);
+
+Validates an in-app-purchase receipt with a dynamically fed secret or public key.
+
+This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
+
+#### .<span class="apidocCodeKeywordSpan">isValidated</span>(response [object])
+
+Returns a boolean.
+
+#### .getPurchaseData(response [object], options [*object]);
+
+Returns a parsed purchase data as an array.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.refreshGoogleToken" id="apidoc.element.in-app-purchase.refreshGoogleToken">
+        function <span class="apidocSignatureSpan">in-app-purchase.</span>refreshGoogleToken
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">refreshGoogleToken = function (cb) {
+	
+	google.refreshToken(cb);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+For apple and windows, the returned array may contain more than 1 purchase data.
+
+For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
+`.
+
+For Google Play purchases (recurring subscription only), each purchase data in the array contains `expirationDate` only if you provide
+ google play store information.
+
+#### .<span class="apidocCodeKeywordSpan">refreshGoogleToken</span>(callback [function]);
+
+**For Android only!**
+
+Returns a callback function with `error` and `response` as arguments.
+
+This method should be used when trying to query the Google Play Store API, but the access token is no longer valid.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.request" id="apidoc.element.in-app-purchase.request">
+        function <span class="apidocSignatureSpan">in-app-purchase.</span>request
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">request = function (options, cb) {
+	send(options.method, options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		};
+	}
+
+	var bodyData = qstring(options.body, options || {});
+	var opts = createOptions(method, bodyData, options || {});
+	opts.headers = addHeaders(opts.headers, options || {});
+	var proto = opts.port === 443 ? https : http;
+	var req = proto.<span class="apidocCodeKeywordSpan">request</span>(opts, function (res) {
+		res.setEncoding(&#x27;utf8&#x27;);
+		var data = &#x27;&#x27;;
+		res.on(&#x27;data&#x27;, function (chunk) {
+			data += chunk;
+		});
+		res.on(&#x27;end&#x27;, function () {
+			try {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.reset" id="apidoc.element.in-app-purchase.reset">
+        function <span class="apidocSignatureSpan">in-app-purchase.</span>reset
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function () {
+	// resets google setup
+	google.reset();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	google.refreshToken(cb);
+
+};
+
+// test use only
+module.exports.reset = function () {
+	// resets google setup
+	google.<span class="apidocCodeKeywordSpan">reset</span>();
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.setup" id="apidoc.element.in-app-purchase.setup">
+        function <span class="apidocSignatureSpan">in-app-purchase.</span>setup
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setup = function (cb) {
+	async.parallel([
+		function (next) {
+			apple.setup(next);
+		},
+		function (next) {
+			google.setup(next);
+		},
+		function (next) {
+			amazon.setup(next);
+		}
+	], cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
+
+### Debug Logging
+
+The module can optionally turn on verbose debug log.
+
+In order to enable the verbose logging, give the following to `.config()` **BEFORE** calling `.<span class="apidocCodeKeywordSpan
+">setup</span>([callback])`:
+
+```javascript
+var iap = require(&#x27;in-app-purchase&#x27;);
+iap.config({
+	verbose: true
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.validate" id="apidoc.element.in-app-purchase.validate">
+        function <span class="apidocSignatureSpan">in-app-purchase.</span>validate
+        <span class="apidocSignatureSpan">(service, receipt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validate = function (service, receipt, cb) {
+	switch (service) {
+		case module.exports.APPLE:
+			apple.validatePurchase(null, receipt, cb);
+			break;
+		case module.exports.GOOGLE:
+			google.validatePurchase(null, receipt, cb);
+			break;
+		case module.exports.WINDOWS:
+			windows.validatePurchase(receipt, cb);
+			break;
+		case module.exports.AMAZON:
+			amazon.validatePurchase(null, receipt, cb);
+			break;
+		default:
+			return cb(new Error(&#x27;invalid service given: &#x27; + service));
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+iap.config({
+	verbose: true
+});
+```
+
+### Methods
+
+#### .<span class="apidocCodeKeywordSpan">validate</span>(service [constant], receipt [string or object], callback [function])
+
+Validates an in-app-purchase receipt.
+
+**NOTE 1:**
+
+constant for iOS: `iap.APPLE`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.validateOnce" id="apidoc.element.in-app-purchase.validateOnce">
+        function <span class="apidocSignatureSpan">in-app-purchase.</span>validateOnce
+        <span class="apidocSignatureSpan">(service, secretOrPubKey, receipt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validateOnce = function (service, secretOrPubKey, receipt, cb) {
+	
+	if (!secretOrPubKey &#x26;&#x26; service !== module.exports.APPLE &#x26;&#x26; service !== module.exports.WINDOWS) {
+		verbose.log(&#x27;&#x3c;.validateOnce&#x3e;&#x27;, service, receipt);
+		return cb(new Error(&#x27;missing secret or public key for dynamic validation:&#x27; + service));
+	}
+	
+	switch (service) {
+		case module.exports.APPLE:
+			apple.validatePurchase(secretOrPubKey, receipt, cb);
+			break;
+		case module.exports.GOOGLE:
+			google.validatePurchase(secretOrPubKey, receipt, cb);
+			break;
+		case module.exports.WINDOWS:
+			windows.validatePurchase(receipt, cb);
+			break;
+		case module.exports.AMAZON:
+			amazon.validatePurchase(secretOrPubKey, receipt, cb);
+			break;
+		default:
+			verbose.log(&#x27;&#x3c;.validateOnce&#x3e;&#x27;, secretOrPubKey, receipt);
+			return cb(new Error(&#x27;invalid service given: &#x27; + service));
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+©Nobuyori Takahashi &#x3c; &#x3c;voltrue2@yahoo.com&#x3e; &#x3e;
+
+[![Build Status](https://travis-ci.org/voltrue2/in-app-purchase.svg?branch=master)](https://travis-ci.org/voltrue2/in-app-purchase
+)
+
+A Node.js module for In-App-Purchase validation for iOS, Android, Amazon, and Windows.
+
+It can also validate multiple app&#x27;s receipt with a single back-end using `.<span class="apidocCodeKeywordSpan">validateOnce
+</span>()` that allows you to change `secret` or `public key` dynamically.
+
+### Required node.js Version
+
+`0.12.0 &#x3e;=`
+
+### Online Demo and Doc
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.in-app-purchase.amazon" id="apidoc.module.in-app-purchase.amazon">module in-app-purchase.amazon</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.amazon.getPurchaseData" id="apidoc.element.in-app-purchase.amazon.getPurchaseData">
+        function <span class="apidocSignatureSpan">in-app-purchase.amazon.</span>getPurchaseData
+        <span class="apidocSignatureSpan">(purchase)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPurchaseData = function (purchase) {
+	if (!purchase || !purchase.purchaseToken) {
+		return null;
+	}
+	var obj = responseData.parse(purchase);
+	obj.transactionId = purchase.purchaseToken;
+	obj.productId = purchase.sku;
+	obj.purchaseData = purchase.itemType;
+	obj.quantity = 1;
+	obj.purchaseDate = purchase.startDate || Date.now();
+	obj.expirationDate = purchase.endDate || 0;
+	return [ obj ];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
+
+#### .isValidated(response [object])
+
+Returns a boolean.
+
+#### .<span class="apidocCodeKeywordSpan">getPurchaseData</span>(response [object], options [*object]);
+
+Returns a parsed purchase data as an array.
+
+For apple and windows, the returned array may contain more than 1 purchase data.
+
+For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
+`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.amazon.readConfig" id="apidoc.element.in-app-purchase.amazon.readConfig">
+        function <span class="apidocSignatureSpan">in-app-purchase.amazon.</span>readConfig
+        <span class="apidocSignatureSpan">(configIn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readConfig = function (configIn) {
+	config = configIn;
+	verbose.setup(config);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+module.exports.APPLE = constants.SERVICES.APPLE;
+module.exports.GOOGLE = constants.SERVICES.GOOGLE;
+module.exports.WINDOWS = constants.SERVICES.WINDOWS;
+module.exports.AMAZON = constants.SERVICES.AMAZON;
+
+module.exports.config = function (configIn) {
+	apple.<span class="apidocCodeKeywordSpan">readConfig</span>(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.setup(configIn);
+};
+
+module.exports.setup = function (cb) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.amazon.setup" id="apidoc.element.in-app-purchase.amazon.setup">
+        function <span class="apidocSignatureSpan">in-app-purchase.amazon.</span>setup
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setup = function (cb) {
+	if (!config || !config.secret) {
+		return cb();
+	}
+	fs.exists(config.secret, function (exists) {
+		var secret = &#x27;&#x27;;
+		if (!exists) {
+			// use the string value literally
+			secret = config.secret;
+			VALIDATION_PATH = VALIDATION_PATH.replace(SECRET, config.secret);
+			RENEW_PATH = RENEW_PATH.replace(SECRET, config.secret);
+			verbose.log(NAME, &#x27;Secret:&#x27;, config.secret);
+			return cb();
+		}
+		// assume it as a file path
+		fs.readFile(config.secret, &#x27;UTF-8&#x27;, function (error, val) {
+			if (error) {
+				return cb(error);
+			}
+			secret = val.replace(/(\r|\n)/g, &#x27;&#x27;);
+			VALIDATION_PATH = VALIDATION_PATH.replace(SECRET, secret);
+			RENEW_PATH = RENEW_PATH.replace(SECRET, secret);
+			verbose.log(NAME, &#x27;Secret:&#x27;, secret);
+			cb();
+		});
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
+
+### Debug Logging
+
+The module can optionally turn on verbose debug log.
+
+In order to enable the verbose logging, give the following to `.config()` **BEFORE** calling `.<span class="apidocCodeKeywordSpan
+">setup</span>([callback])`:
+
+```javascript
+var iap = require(&#x27;in-app-purchase&#x27;);
+iap.config({
+	verbose: true
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.amazon.validatePurchase" id="apidoc.element.in-app-purchase.amazon.validatePurchase">
+        function <span class="apidocSignatureSpan">in-app-purchase.amazon.</span>validatePurchase
+        <span class="apidocSignatureSpan">(dSecret, receipt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validatePurchase = function (dSecret, receipt, cb) {
+	var rpath = RENEW_PATH;
+	var path;	
+
+	// override secret with dSecret to allow dynamically fed secret to validate
+	if (dSecret) {
+		verbose.log(NAME, &#x27;Use dynamically fed secret:&#x27;, dSecret);
+		rpath = S_R_PATH.replace(SECRET, dSecret);
+		var vpath = S_VAL_PATH.replace(SECRET, dSecret);
+		path = vpath.replace(UID, receipt.userId);
+	} else {
+		path = VALIDATION_PATH.replace(UID, receipt.userId);
+	}
+	path = path.replace(PTOKEN, receipt.receiptId);
+	verbose.log(NAME, &#x27;Validate:&#x27;, path, receipt);
+	send(path, ERRORS.VALIDATION, function (error, res) {
+		if (error) {
+			if (res === 499) {
+				// must be renewed and re-tried
+				var renew = rpath.replace(UID, receipt.userId);
+				renew = renew.replace(PTOKEN, receipt.receiptId);
+				verbose.log(NAME, &#x27;Purchase must be renewed (&#x27; + res + &#x27;):&#x27;, renew);
+				send(renew, ERRORS.RENEW, function (error, renewed) {
+					if (error) {
+						var renewedErrorRes = {
+							status: renewed,
+							message: ERRORS.RENEW[renewed] || &#x27;Unkown&#x27;
+						};
+						verbose.log(NAME, &#x27;Failed to renew purchase:&#x27;, renewedErrorRes);
+						return cb(error, renewedErrorRes);
+					}
+					var renewedReceipt = {
+						receiptId: renewed.purchaseToken,
+						userId: receipt.userId
+					};
+					verbose.log(NAME, &#x27;Purchase renewed:&#x27;, renewedReceipt);
+					module.exports.validatePurchase(renewedReceipt, cb);
+				});
+				return;
+			}		
+
+			var errorRes = {
+				status: res,
+				message: ERRORS.VALIDATION[res] || &#x27;Unknown&#x27;
+			};
+			verbose.log(NAME, &#x27;Validation failed:&#x27;, errorRes);
+			return cb(error, errorRes);
+		}
+		verbose.log(NAME, &#x27;Validation successful:&#x27;, res);
+		cb(null, res);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		}
+	], cb);
+};
+
+module.exports.validate = function (service, receipt, cb) {
+	switch (service) {
+		case module.exports.APPLE:
+			apple.<span class="apidocCodeKeywordSpan">validatePurchase</span>(null, receipt, cb);
+			break;
+		case module.exports.GOOGLE:
+			google.validatePurchase(null, receipt, cb);
+			break;
+		case module.exports.WINDOWS:
+			windows.validatePurchase(receipt, cb);
+			break;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.in-app-purchase.amazon2" id="apidoc.module.in-app-purchase.amazon2">module in-app-purchase.amazon2</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.amazon2.getPurchaseData" id="apidoc.element.in-app-purchase.amazon2.getPurchaseData">
+        function <span class="apidocSignatureSpan">in-app-purchase.amazon2.</span>getPurchaseData
+        <span class="apidocSignatureSpan">(purchase)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPurchaseData = function (purchase) {
+	if (!purchase || !purchase.receiptId) {
+		return null;
+	}
+	var obj = {};
+	obj.transactionId = purchase.receiptId;
+	obj.productId = purchase.productId;
+	obj.purchaseData = purchase.productType;
+	obj.quantity = 1;
+	obj.purchaseDate = purchase.purchaseDate || Date.now();
+	obj.expirationDate = purchase.cancelDate || 0;
+	return [obj];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
+
+#### .isValidated(response [object])
+
+Returns a boolean.
+
+#### .<span class="apidocCodeKeywordSpan">getPurchaseData</span>(response [object], options [*object]);
+
+Returns a parsed purchase data as an array.
+
+For apple and windows, the returned array may contain more than 1 purchase data.
+
+For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
+`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.amazon2.readConfig" id="apidoc.element.in-app-purchase.amazon2.readConfig">
+        function <span class="apidocSignatureSpan">in-app-purchase.amazon2.</span>readConfig
+        <span class="apidocSignatureSpan">(configIn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readConfig = function (configIn) {
+	config = configIn;
+	verbose.setup(config);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+module.exports.APPLE = constants.SERVICES.APPLE;
+module.exports.GOOGLE = constants.SERVICES.GOOGLE;
+module.exports.WINDOWS = constants.SERVICES.WINDOWS;
+module.exports.AMAZON = constants.SERVICES.AMAZON;
+
+module.exports.config = function (configIn) {
+	apple.<span class="apidocCodeKeywordSpan">readConfig</span>(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.setup(configIn);
+};
+
+module.exports.setup = function (cb) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.amazon2.setup" id="apidoc.element.in-app-purchase.amazon2.setup">
+        function <span class="apidocSignatureSpan">in-app-purchase.amazon2.</span>setup
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setup = function (cb) {
+	if (!config || !config.secret) {
+		return cb();
+	}
+	fs.exists(config.secret, function (exists) {
+		var secret = &#x27;&#x27;;
+		if (!exists) {
+			// use the string value literally
+			secret = config.secret;
+			VALIDATION_PATH = VALIDATION_PATH.replace(SECRET, config.secret);
+			RENEW_PATH = RENEW_PATH.replace(SECRET, config.secret);
+			verbose.log(NAME, &#x27;Secret:&#x27;, config.secret);
+			return cb();
+		}
+		// assume it as a file path
+		fs.readFile(config.secret, &#x27;UTF-8&#x27;, function (error, val) {
+			if (error) {
+				return cb(error);
+			}
+			secret = val.replace(/(\r|\n)/g, &#x27;&#x27;);
+			VALIDATION_PATH = VALIDATION_PATH.replace(SECRET, secret);
+			RENEW_PATH = RENEW_PATH.replace(SECRET, secret);
+			verbose.log(NAME, &#x27;Secret:&#x27;, secret);
+			cb();
+		});
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
+
+### Debug Logging
+
+The module can optionally turn on verbose debug log.
+
+In order to enable the verbose logging, give the following to `.config()` **BEFORE** calling `.<span class="apidocCodeKeywordSpan
+">setup</span>([callback])`:
+
+```javascript
+var iap = require(&#x27;in-app-purchase&#x27;);
+iap.config({
+	verbose: true
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.amazon2.validatePurchase" id="apidoc.element.in-app-purchase.amazon2.validatePurchase">
+        function <span class="apidocSignatureSpan">in-app-purchase.amazon2.</span>validatePurchase
+        <span class="apidocSignatureSpan">(dSecret, receipt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validatePurchase = function (dSecret, receipt, cb) {
+	var rpath = RENEW_PATH;
+	var path;	
+
+	// override secret with dSecret to allow dynamically fed secret to validate
+	if (dSecret) {
+		verbose.log(NAME, &#x27;Use dynamically fed secret:&#x27;, dSecret);
+		rpath = S_R_PATH.replace(SECRET, dSecret);
+		var vpath = S_VAL_PATH.replace(SECRET, dSecret);
+		path = vpath.replace(UID, receipt.userId);
+	} else {
+		path = VALIDATION_PATH.replace(UID, receipt.userId);
+	}
+	path = path.replace(RID, receipt.receiptId);
+	verbose.log(NAME, &#x27;Validate:&#x27;, path, receipt);
+	send(path, ERRORS.VALIDATION, function (error, res) {
+		if (error) {
+			if (res === 499) {
+				// must be renewed and re-tried
+				var renew = rpath.replace(UID, receipt.userId);
+				renew = renew.replace(RID, receipt.receiptId);
+				verbose.log(NAME, &#x27;Purchase must be renewed (&#x27; + res + &#x27;):&#x27;, renew);
+				send(renew, ERRORS.RENEW, function (error, renewed) {
+					if (error) {
+						var renewedErrorRes = {
+							status: renewed,
+							message: ERRORS.RENEW[renewed] || &#x27;Unkown&#x27;
+						};
+						verbose.log(NAME, &#x27;Failed to renew purchase:&#x27;, renewedErrorRes);
+						return cb(error, renewedErrorRes);
+					}
+					var renewedReceipt = {
+						receiptId: renewed.receiptId,
+						userId: receipt.userId
+					};
+					verbose.log(NAME, &#x27;Purchase renewed:&#x27;, renewedReceipt);
+					module.exports.validatePurchase(renewedReceipt, cb);
+				});
+				return;
+			}		
+
+			var errorRes = {
+				status: res,
+				message: ERRORS.VALIDATION[res] || &#x27;Unknown&#x27;
+			};
+			verbose.log(NAME, &#x27;Validation failed:&#x27;, errorRes);
+			return cb(error, errorRes);
+		}
+		verbose.log(NAME, &#x27;Validation successful:&#x27;, res);
+		cb(null, res);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		}
+	], cb);
+};
+
+module.exports.validate = function (service, receipt, cb) {
+	switch (service) {
+		case module.exports.APPLE:
+			apple.<span class="apidocCodeKeywordSpan">validatePurchase</span>(null, receipt, cb);
+			break;
+		case module.exports.GOOGLE:
+			google.validatePurchase(null, receipt, cb);
+			break;
+		case module.exports.WINDOWS:
+			windows.validatePurchase(receipt, cb);
+			break;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.in-app-purchase.amazonManager" id="apidoc.module.in-app-purchase.amazonManager">module in-app-purchase.amazonManager</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.amazonManager.create" id="apidoc.element.in-app-purchase.amazonManager.create">
+        function <span class="apidocSignatureSpan">in-app-purchase.amazonManager.</span>create
+        <span class="apidocSignatureSpan">(_config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (_config) {
+	if (_config &#x26;&#x26; _config.amazonAPIVersion === 2) {
+		amazon2.readConfig(_config);
+		return amazon2;
+	} else {
+		amazon.readConfig(_config);
+		return amazon;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+module.exports.WINDOWS = constants.SERVICES.WINDOWS;
+module.exports.AMAZON = constants.SERVICES.AMAZON;
+
+module.exports.config = function (configIn) {
+	apple.readConfig(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.<span class="apidocCodeKeywordSpan">create</span>(configIn);
+	verbose.setup(configIn);
+};
+
+module.exports.setup = function (cb) {
+	async.parallel([
+		function (next) {
+			apple.setup(next);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.in-app-purchase.apple" id="apidoc.module.in-app-purchase.apple">module in-app-purchase.apple</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.apple.getPurchaseData" id="apidoc.element.in-app-purchase.apple.getPurchaseData">
+        function <span class="apidocSignatureSpan">in-app-purchase.apple.</span>getPurchaseData
+        <span class="apidocSignatureSpan">(purchase, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPurchaseData = function (purchase, options) {
+	if (!purchase || !purchase.receipt) {
+		return null;
+	}
+	var data = [];
+	if (purchase.receipt[REC_KEYS.IN_APP]) {
+		// iOS 6+
+		var tids = {};
+		var list = purchase.receipt[REC_KEYS.IN_APP];
+		var lri = purchase[REC_KEYS.LRI];
+		if (lri &#x26;&#x26; Array.isArray(lri)) {
+			list = list.concat(lri);
+		}
+		for (var i = 0, len = list.length; i &#x3c; len; i++) {
+			var item = list[i];
+			var tid = item[&#x27;original_&#x27; + REC_KEYS.TRANSACTION_ID];
+			var pdate = parseInt(item[REC_KEYS.PURCHASE_DATE_MS], 10);
+			var exp = getSubscriptionExpireDate(item);
+			var index = data.length;
+
+			if (options &#x26;&#x26; options.ignoreExpired &#x26;&#x26; exp &#x26;&#x26; Date.now() - exp &#x3e;= 0) {
+				// we are told to ignore expired item and it is expired
+				continue;
+			}
+
+			if (tids[tid] &#x26;&#x26; tids[tid].time &#x3c; pdate) {
+				// avoid duplicate and keep the latest
+				index = tids[tid].index;
+			}
+
+			tids[tid] = { time: pdate, index: data.length };
+			data[index] = responseData.parse(item);
+			data[index].bundleId = purchase.receipt[REC_KEYS.BUNDLE_ID];
+			data[index].expirationDate = exp;
+		}
+		return data;
+	}
+	// old and will be deprecated by Apple
+	data.push({
+		bundleId: purchase.receipt[REC_KEYS.BUNDLE_ID],
+		transactionId:  purchase.receipt[REC_KEYS.TRANSACTION_ID],
+		productId: purchase.receipt[REC_KEYS.PRODUCT_ID],
+		purchaseDate: purchase.receipt[REC_KEYS.ORIGINAL_PURCHASE_DATE_MS],
+		quantity: parseInt(purchase.receipt.quantity, 10),
+		expirationDate: getSubscriptionExpireDate(purchase)
+	});
+	return data;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
+
+#### .isValidated(response [object])
+
+Returns a boolean.
+
+#### .<span class="apidocCodeKeywordSpan">getPurchaseData</span>(response [object], options [*object]);
+
+Returns a parsed purchase data as an array.
+
+For apple and windows, the returned array may contain more than 1 purchase data.
+
+For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
+`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.apple.readConfig" id="apidoc.element.in-app-purchase.apple.readConfig">
+        function <span class="apidocSignatureSpan">in-app-purchase.apple.</span>readConfig
+        <span class="apidocSignatureSpan">(configIn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readConfig = function (configIn) {
+	if (!configIn) {
+		// no apple iap or password not required
+		return;
+	}
+	
+	// set up verbose logging
+	verbose.setup(configIn);
+	
+	config = {};
+	var configValueSet = false;
+	// Apply any default settings to Request.
+	if (&#x27;requestDefaults&#x27; in configIn) {
+		request = request.defaults(configIn.requestDefaults);
+	}
+	Object.keys(configIn).forEach(function (key) {
+		if (isValidConfigKey(key)) {
+			config[key] = configIn[key];
+			configValueSet = true;
+		}
+	});
+
+	if (!configValueSet) {
+		config = null;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+module.exports.APPLE = constants.SERVICES.APPLE;
+module.exports.GOOGLE = constants.SERVICES.GOOGLE;
+module.exports.WINDOWS = constants.SERVICES.WINDOWS;
+module.exports.AMAZON = constants.SERVICES.AMAZON;
+
+module.exports.config = function (configIn) {
+	apple.<span class="apidocCodeKeywordSpan">readConfig</span>(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.setup(configIn);
+};
+
+module.exports.setup = function (cb) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.apple.setup" id="apidoc.element.in-app-purchase.apple.setup">
+        function <span class="apidocSignatureSpan">in-app-purchase.apple.</span>setup
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setup = function (cb) {
+	if (!config || !config.applePassword) {
+
+		if (process.env.APPLE_IAP_PASSWORD) {
+			config = config || {};
+			config.applePassword = process.env.APPLE_IAP_PASSWORD;
+		}
+
+	}
+
+	return cb();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
+
+### Debug Logging
+
+The module can optionally turn on verbose debug log.
+
+In order to enable the verbose logging, give the following to `.config()` **BEFORE** calling `.<span class="apidocCodeKeywordSpan
+">setup</span>([callback])`:
+
+```javascript
+var iap = require(&#x27;in-app-purchase&#x27;);
+iap.config({
+	verbose: true
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.apple.validatePurchase" id="apidoc.element.in-app-purchase.apple.validatePurchase">
+        function <span class="apidocSignatureSpan">in-app-purchase.apple.</span>validatePurchase
+        <span class="apidocSignatureSpan">(secret, receipt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validatePurchase = function (secret, receipt, cb) {
+	var prodPath = &#x27;https://&#x27; + liveHost + path;
+	var sandboxPath = &#x27;https://&#x27; + sandboxHost + path;
+	var status;
+	var validatedData;
+	var isValid = false;
+	var content = { &#x27;receipt-data&#x27;: receipt };
+
+	if (config &#x26;&#x26; config.applePassword) {
+		content.password = config.applePassword;
+	}
+
+	// override applePassword from config to allow dynamically fed secret to validate
+	if (secret) {
+		verbose.log(&#x27;&#x3c;Apple&#x3e; Using dynamic applePassword:&#x27;, secret);
+		content.password = secret;
+	}
+
+	verbose.log(&#x27;&#x3c;Apple&#x3e; Validatation data:&#x27;, content);
+
+	var tryProd = function (next) {
+		verbose.log(&#x27;&#x3c;Apple&#x3e; Try validate against production:&#x27;, prodPath);
+		send(prodPath, content, function (error, res, data) {
+			verbose.log(&#x27;&#x3c;Apple&#x3e;&#x27;, prodPath, &#x27;validation response:&#x27;, data);
+			// request error
+			if (error) {
+				// 1 is unknown
+				status = data ? data.status : 1;
+				validatedData = {
+					status: status,
+					message: errorMap[status] || &#x27;Unknown&#x27;
+				};
+				applyResponseData(validatedData, data);
+				verbose.log(&#x27;&#x3c;Apple&#x3e;&#x27;, prodPath, &#x27;failed:&#x27;, error, validatedData);
+				return next(error);
+			}
+			// apple responded with error
+			if (data.status &#x3e; 0 &#x26;&#x26; data.status !== 21007 &#x26;&#x26; data.status !== 21002) {
+				verbose.log(prodPath, &#x27;failed:&#x27;, data);
+				status = data.status;
+				var emsg = errorMap[status] || &#x27;Unknown&#x27;;
+				var err = new Error(emsg);
+				validatedData = {
+					status: status,
+					message: emsg
+				};
+				applyResponseData(validatedData, data);
+				verbose.log(&#x27;&#x3c;Apple&#x3e;&#x27;, prodPath, &#x27;failed:&#x27;, validatedData);
+				return next(err);		
+			}
+
+			// try sandbox...
+			if (data.status === 21007 || data.status === 21002) {
+				return next();
+			}
+			// production validated
+			validatedData = data;
+			verbose.log(&#x27;&#x3c;Apple&#x3e; Production validation successful:&#x27;, validatedData);
+			isValid = true;
+			next();
+		});
+	};
+
+	var trySandbox = function (next) {
+		if (isValid) {
+			return next();
+		}
+		verbose.log(&#x27;&#x3c;Apple&#x3e; Try validate against sandbox:&#x27;, sandboxPath);
+		send(sandboxPath, content, function (error, res, data) {
+			verbose.log(&#x27;&#x3c;Apple&#x3e;&#x27;, sandboxPath, &#x27;validation response:&#x27;, data);
+			if (error) {
+				// 1 is unknown
+				status = data ? data.status : 1;
+				validatedData = {
+					status: status,
+					message: errorMap[status] || &#x27;Unknown&#x27;
+				};
+				applyResponseData(validatedData, data);
+				verbose.log(&#x27;&#x3c;Apple&#x3e;&#x27;, sandboxPath, &#x27;failed:&#x27;, error, validatedData);
+				return next(error);
+			}
+			if (data.status &#x3e; 0) {
+				verbose.log(&#x27;&#x3c;Apple&#x3e;&#x27;, sandboxPath, &#x27;failed:&#x27;, data);
+				status = data.status;
+				var emsg = errorMap[status] || &#x27;Unknown&#x27;;
+				var err = new Error(emsg);
+				validatedData = {
+					status: status,
+					message: emsg
+				};
+				applyResponseData(validatedData, data);
+				verbose.log(&#x27;&#x3c;Apple&#x3e;&#x27;, sandboxPath, &#x27;failed:&#x27;, validatedData);
+				return next(err);		
+			}
+			// sandbox validated
+			validatedData = data;
+			verbose.log(&#x27;&#x3c;Apple&#x3e; Sandbox validation successful:&#x27;, validatedData);
+			next();
+		});
+	};
+
+	var done = function (error) {
+		if (error) {
+			return cb(error, validatedData);
+		}
+		handleResponse(receipt, validatedData, cb);
+	};
+
+	var tasks = [
+		tryProd,
+		trySandbox
+	];
+	async.series(tasks, done);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		}
+	], cb);
+};
+
+module.exports.validate = function (service, receipt, cb) {
+	switch (service) {
+		case module.exports.APPLE:
+			apple.<span class="apidocCodeKeywordSpan">validatePurchase</span>(null, receipt, cb);
+			break;
+		case module.exports.GOOGLE:
+			google.validatePurchase(null, receipt, cb);
+			break;
+		case module.exports.WINDOWS:
+			windows.validatePurchase(receipt, cb);
+			break;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.in-app-purchase.async" id="apidoc.module.in-app-purchase.async">module in-app-purchase.async</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.async.each" id="apidoc.element.in-app-purchase.async.each">
+        function <span class="apidocSignatureSpan">in-app-purchase.async.</span>each
+        <span class="apidocSignatureSpan">(list, handler, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">each = function (list, handler, done) {
+	// counter of finished tasks
+	var counter = 0;
+	var len = list.length;
+
+	if (!len) {
+		return done();
+	}
+
+	var iterator = function (i, list, handler, done) {
+		var item = list[i];
+		handler(item, function (error) {
+			if (error) {
+				return done(error);
+			}
+			counter += 1;
+			if (counter === len) {
+				done();
+			}
+		});
+	};
+	for (var i = 0; i &#x3c; len; i++) {
+		iterator(i, list, handler, done);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.async.eachSeries" id="apidoc.element.in-app-purchase.async.eachSeries">
+        function <span class="apidocSignatureSpan">in-app-purchase.async.</span>eachSeries
+        <span class="apidocSignatureSpan">(list, handler, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">eachSeries = function (list, handler, done) {
+	
+	if (!list.length) {
+		return done();
+	}
+
+	iteratorSeries(0, list, handler, done);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		}
+		if (process.env[ENV_PUBLICKEY.LIVE]) {
+			publicKeyMap.live = process.env[ENV_PUBLICKEY.LIVE].replace(/s+$/, &#x27;&#x27;);
+		}
+		return cb();
+	}
+	var keys = Object.keys(keyPathMap);
+	async.<span class="apidocCodeKeywordSpan">eachSeries</span>(keys, function (key, next) {
+		var pkeyPath = keyPathMap[key];
+		fs.readFile(pkeyPath, function (error, fileData) {
+			// we are ignoring missing public key file(s)
+			if (error) {
+				return next();
+			}
+			publicKeyMap[key] = fileData.toString().replace(/\s+$/, &#x27;&#x27;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.async.forEach" id="apidoc.element.in-app-purchase.async.forEach">
+        function <span class="apidocSignatureSpan">in-app-purchase.async.</span>forEach
+        <span class="apidocSignatureSpan">(list, handler, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">forEach = function (list, handler, done) {
+	// counter of finished tasks
+	var counter = 0;
+	var len = list.length;
+
+	if (!len) {
+		return done();
+	}
+
+	var iterator = function (i, list, handler, done) {
+		var item = list[i];
+		handler(item, function (error) {
+			if (error) {
+				return done(error);
+			}
+			counter += 1;
+			if (counter === len) {
+				done();
+			}
+		});
+	};
+	for (var i = 0; i &#x3c; len; i++) {
+		iterator(i, list, handler, done);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	
+	config = {};
+	var configValueSet = false;
+	// Apply any default settings to Request.
+	if (&#x27;requestDefaults&#x27; in configIn) {
+		request = request.defaults(configIn.requestDefaults);
+	}
+	Object.keys(configIn).<span class="apidocCodeKeywordSpan">forEach</span>(function (key) {
+		if (isValidConfigKey(key)) {
+			config[key] = configIn[key];
+			configValueSet = true;
+		}
+	});
+
+	if (!configValueSet) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.async.parallel" id="apidoc.element.in-app-purchase.async.parallel">
+        function <span class="apidocSignatureSpan">in-app-purchase.async.</span>parallel
+        <span class="apidocSignatureSpan">(list, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parallel = function (list, done) {
+	var counter = 0;
+	var len = list.length;
+
+	done = done || function () {};
+
+	if (!len) {
+		return done();
+	}
+
+	var iterator = function (i, list, done) {
+		var handler = list[i];
+		handler(function (error) {
+			if (error) {
+				return done(error);
+			}
+			counter += 1;
+			if (counter === len) {
+				done();
+			}
+		});
+	};
+	for (var i = 0; i &#x3c; len; i++) {
+		iterator(i, list, done);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.setup(configIn);
+};
+
+module.exports.setup = function (cb) {
+	async.<span class="apidocCodeKeywordSpan">parallel</span>([
+		function (next) {
+			apple.setup(next);
+		},
+		function (next) {
+			google.setup(next);
+		},
+		function (next) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.async.series" id="apidoc.element.in-app-purchase.async.series">
+        function <span class="apidocSignatureSpan">in-app-purchase.async.</span>series
+        <span class="apidocSignatureSpan">(list, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">series = function (list, done) {
+	
+	if (!list.length) {
+		return done();
+	}
+
+	handlerSeries(0, list, done);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		handleResponse(receipt, validatedData, cb);
+	};
+
+	var tasks = [
+		tryProd,
+		trySandbox
+	];
+	async.<span class="apidocCodeKeywordSpan">series</span>(tasks, done);
+};
+
+module.exports.getPurchaseData = function (purchase, options) {
+	if (!purchase || !purchase.receipt) {
+		return null;
+	}
+	var data = [];
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.in-app-purchase.google" id="apidoc.module.in-app-purchase.google">module in-app-purchase.google</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.google.getPurchaseData" id="apidoc.element.in-app-purchase.google.getPurchaseData">
+        function <span class="apidocSignatureSpan">in-app-purchase.google.</span>getPurchaseData
+        <span class="apidocSignatureSpan">(purchase)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPurchaseData = function (purchase) {
+	if (!purchase) {
+		return null;
+	}
+	var data = [];
+	<span class="apidocCodeCommentSpan">/*
+	var purchaseInfo = {
+		transactionId: purchase.purchaseToken,
+		orderId: purchase.orderId,
+		productId: purchase.productId,
+		purchaseDate: purchase.purchaseTime,
+		quantity: 1
+	};
+	*/
+</span>	var purchaseInfo = responseData.parse(purchase);
+	purchaseInfo.transactionId = purchase.purchaseToken;
+	purchaseInfo.purchaseDate = purchase.purchaseTime;
+	purchaseInfo.quantity = 1;
+
+	if (checkSubscriptionState) {
+		purchaseInfo.expirationDate = purchase.expirationTime;
+	}
+
+	data.push(purchaseInfo);
+	return data;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
+
+#### .isValidated(response [object])
+
+Returns a boolean.
+
+#### .<span class="apidocCodeKeywordSpan">getPurchaseData</span>(response [object], options [*object]);
+
+Returns a parsed purchase data as an array.
+
+For apple and windows, the returned array may contain more than 1 purchase data.
+
+For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
+`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.google.readConfig" id="apidoc.element.in-app-purchase.google.readConfig">
+        function <span class="apidocSignatureSpan">in-app-purchase.google.</span>readConfig
+        <span class="apidocSignatureSpan">(configIn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readConfig = function (configIn) {
+	if (!configIn) {
+		// no google iap or public key(s) from ENV variables
+		return;
+	}
+	verbose.setup(configIn);
+	config = {};
+	var configValueSet = false;
+	Object.keys(configIn).forEach(function (key) {
+		if (isValidConfigKey(key)) {
+			config[key] = configIn[key];
+			configValueSet = true;
+		}
+	});
+
+	// backward compatibility
+	if (configIn &#x26;&#x26; configIn.publicKeyStrSandbox) {
+		config.googlePublicKeyStrSandbox = configIn.publicKeyStrSandbox;
+	}
+	if (configIn &#x26;&#x26; configIn.publicKeyStrLive) {
+		config.googlePublicKeyStrLive = configIn.publicKeyStrLive;
+	}
+
+	if (!configValueSet) {
+		config = null;
+		return;
+	}
+
+	keyPathMap.sandbox = config.googlePublicKeyPath + sandboxPkey;
+	keyPathMap.live = config.googlePublicKeyPath + livePkey;
+
+	if (config.googleAccToken &#x26;&#x26; config.googleRefToken &#x26;&#x26; config.googleClientID &#x26;&#x26; config.googleClientSecret) {
+		googleTokenMap.accessToken = config.googleAccToken;
+		googleTokenMap.refreshToken = config.googleRefToken;
+		googleTokenMap.clientID = config.googleClientID;
+		googleTokenMap.clientSecret = config.googleClientSecret;
+		checkSubscriptionState = true;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+module.exports.APPLE = constants.SERVICES.APPLE;
+module.exports.GOOGLE = constants.SERVICES.GOOGLE;
+module.exports.WINDOWS = constants.SERVICES.WINDOWS;
+module.exports.AMAZON = constants.SERVICES.AMAZON;
+
+module.exports.config = function (configIn) {
+	apple.<span class="apidocCodeKeywordSpan">readConfig</span>(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.setup(configIn);
+};
+
+module.exports.setup = function (cb) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.google.refreshToken" id="apidoc.element.in-app-purchase.google.refreshToken">
+        function <span class="apidocSignatureSpan">in-app-purchase.google.</span>refreshToken
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">refreshToken = function (cb) {
+
+	if (!checkSubscriptionState) {
+		return cb(new Error(&#x27;missing google play api info&#x27;), {
+			status: constants.VALIDATION.FAILURE,
+			message: &#x27;client_id, client_secret, access_token and refres_token should be provided&#x27;
+		});
+	}
+
+	refreshGoogleTokens(function (error, res, body) {
+		if (error) {
+			return cb(error, { status: constants.VALIDATION.FAILURE, message: error.message });
+		}
+
+		var parsedBody = JSON.parse(body);
+
+		if (&#x27;error&#x27; in parsedBody) {
+			return cb(new Error(parsedBody.error), {
+				status: constants.VALIDATION.FAILURE,
+				message: parsedBody.error
+			});
+		}
+
+		// Store new access token
+		googleTokenMap.accessToken = parsedBody[KEYS.ACCESS_TOKEN];
+		cb(null, parsedBody);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		default:
+			return null;
+	}
+};
+
+module.exports.refreshGoogleToken = function (cb) {
+	
+	google.<span class="apidocCodeKeywordSpan">refreshToken</span>(cb);
+
+};
+
+// test use only
+module.exports.reset = function () {
+	// resets google setup
+	google.reset();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.google.reset" id="apidoc.element.in-app-purchase.google.reset">
+        function <span class="apidocSignatureSpan">in-app-purchase.google.</span>reset
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function () {
+	config = null;
+	keyPathMap = {};
+	publicKeyMap = {};
+	googleTokenMap = {};
+	checkSubscriptionState = false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	google.refreshToken(cb);
+
+};
+
+// test use only
+module.exports.reset = function () {
+	// resets google setup
+	google.<span class="apidocCodeKeywordSpan">reset</span>();
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.google.setup" id="apidoc.element.in-app-purchase.google.setup">
+        function <span class="apidocSignatureSpan">in-app-purchase.google.</span>setup
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setup = function (cb) {
+	if (config &#x26;&#x26; (config.googlePublicKeyStrSandbox || config.googlePublicKeyStrLive)) {
+		// try to read public key value as string
+		if (config &#x26;&#x26; config.googlePublicKeyStrSandbox) {
+			publicKeyMap.sandbox = config.googlePublicKeyStrSandbox;
+		}
+		if (config &#x26;&#x26; config.googlePublicKeyStrLive) {
+			publicKeyMap.live = config.googlePublicKeyStrLive;
+		}
+		return cb();
+	}
+	if (!config || !config.googlePublicKeyPath) {
+		// try to read public key value from ENV if available
+		// if this is set, reading the public key value from file system is ignored
+		if (process.env[ENV_PUBLICKEY.SANDBOX]) {
+			publicKeyMap.sandbox = process.env[ENV_PUBLICKEY.SANDBOX].replace(/s+$/, &#x27;&#x27;);
+		}
+		if (process.env[ENV_PUBLICKEY.LIVE]) {
+			publicKeyMap.live = process.env[ENV_PUBLICKEY.LIVE].replace(/s+$/, &#x27;&#x27;);
+		}
+		return cb();
+	}
+	var keys = Object.keys(keyPathMap);
+	async.eachSeries(keys, function (key, next) {
+		var pkeyPath = keyPathMap[key];
+		fs.readFile(pkeyPath, function (error, fileData) {
+			// we are ignoring missing public key file(s)
+			if (error) {
+				return next();
+			}
+			publicKeyMap[key] = fileData.toString().replace(/\s+$/, &#x27;&#x27;);
+			next();
+		});
+	}, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
+
+### Debug Logging
+
+The module can optionally turn on verbose debug log.
+
+In order to enable the verbose logging, give the following to `.config()` **BEFORE** calling `.<span class="apidocCodeKeywordSpan
+">setup</span>([callback])`:
+
+```javascript
+var iap = require(&#x27;in-app-purchase&#x27;);
+iap.config({
+	verbose: true
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.google.validatePurchase" id="apidoc.element.in-app-purchase.google.validatePurchase">
+        function <span class="apidocSignatureSpan">in-app-purchase.google.</span>validatePurchase
+        <span class="apidocSignatureSpan">(dPubkey, receipt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validatePurchase = function (dPubkey, receipt, cb) {
+
+	verbose.log(NAME, &#x27;Validate this:&#x27;, receipt);
+
+	if (typeof receipt !== &#x27;object&#x27;) {
+		verbose.log(NAME, &#x27;Failed: malformed receipt&#x27;);
+		return cb(new Error(&#x27;malformed receipt: &#x27; + receipt), {
+			status: constants.VALIDATION.FAILURE,
+			message: &#x27;Malformed receipt&#x27;
+		});
+	}
+	// the data might be in receipt and not in data
+	if (receipt.receipt &#x26;&#x26; !receipt.data) {
+		receipt.data = receipt.receipt;
+	}
+	if (!receipt.data || !receipt.signature) {
+		verbose.log(NAME, &#x27;Failed: missing receipt content&#x27;);
+		return cb(new Error(&#x27;missing receipt data:\n&#x27; + JSON.stringify(receipt)), {
+			status: constants.VALIDATION.FAILURE,
+			message: &#x27;Malformed receipt&#x27;
+		});
+	}
+	if (typeof receipt.data === &#x27;object&#x27;) {
+		// stringify and make sure to escpace the value of developerPayload
+		receipt.data = JSON.stringify(receipt.data).replace(/\//g, &#x27;\\/&#x27;);
+		verbose.log(NAME, &#x27;Auto stringified receipt data:&#x27;, receipt.data);
+	}
+
+	var pubkey = publicKeyMap.live;
+
+	// override pubkey to allow dynamically fed public key to validate
+	if (dPubkey) {
+		verbose.log(NAME, &#x27;Using dynamically fed public key:&#x27;, dPubkey);
+		pubkey = dPubkey;
+	}
+
+	verbose.log(NAME, &#x27;Try validate against live public key:&#x27;, pubkey);
+	// try live first
+	validatePublicKey(receipt, getPublicKey(pubkey), function (error, data) {
+		if (error) {
+			if (!publicKeyMap.sandbox) {
+				verbose.log(NAME, &#x27;Failed to validate against:&#x27;, pubkey, error);
+				return cb(error, {
+					status: constants.VALIDATION.FAILURE,
+					message: error.message
+				});
+			}
+			pubkey = publicKeyMap.sandbox;
+			verbose.log(NAME, &#x27;Failed against live public key:&#x27;, error);
+			verbose.log(NAME, &#x27;Try validate against sandbox public key:&#x27;, pubkey);
+			// now try sandbox
+			validatePublicKey(receipt, getPublicKey(pubkey), function (error2, data) {
+				if (error2) {
+					verbose.log(NAME, &#x27;Failed against sandbox public key:&#x27;, error2);
+					// we will send the error from live only
+					return cb(error, {
+						status: constants.VALIDATION.FAILURE,
+						message: error.message
+					});
+				}
+				verbose.log(NAME, &#x27;Validation against sandbox public key successful:&#x27;, data);
+				// sandbox worked
+				checkSubscriptionStatus(data, cb);
+
+			});
+			return;
+		}
+
+		verbose.log(NAME, &#x27;Validation against live public key successful:&#x27;, data);
+		// live worked
+		checkSubscriptionStatus(data, cb);
+
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		}
+	], cb);
+};
+
+module.exports.validate = function (service, receipt, cb) {
+	switch (service) {
+		case module.exports.APPLE:
+			apple.<span class="apidocCodeKeywordSpan">validatePurchase</span>(null, receipt, cb);
+			break;
+		case module.exports.GOOGLE:
+			google.validatePurchase(null, receipt, cb);
+			break;
+		case module.exports.WINDOWS:
+			windows.validatePurchase(receipt, cb);
+			break;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.in-app-purchase.request" id="apidoc.module.in-app-purchase.request">module in-app-purchase.request</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.request.request" id="apidoc.element.in-app-purchase.request.request">
+        function <span class="apidocSignatureSpan">in-app-purchase.</span>request
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">request = function (options, cb) {
+	send(options.method, options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		};
+	}
+
+	var bodyData = qstring(options.body, options || {});
+	var opts = createOptions(method, bodyData, options || {});
+	opts.headers = addHeaders(opts.headers, options || {});
+	var proto = opts.port === 443 ? https : http;
+	var req = proto.<span class="apidocCodeKeywordSpan">request</span>(opts, function (res) {
+		res.setEncoding(&#x27;utf8&#x27;);
+		var data = &#x27;&#x27;;
+		res.on(&#x27;data&#x27;, function (chunk) {
+			data += chunk;
+		});
+		res.on(&#x27;end&#x27;, function () {
+			try {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.request.del" id="apidoc.element.in-app-purchase.request.del">
+        function <span class="apidocSignatureSpan">in-app-purchase.request.</span>del
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">del = function (options, cb) {
+	send(&#x27;DELETE&#x27;, options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.request.get" id="apidoc.element.in-app-purchase.request.get">
+        function <span class="apidocSignatureSpan">in-app-purchase.request.</span>get
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (options, cb) {
+	send(&#x27;GET&#x27;, options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	obj.quantity = 1;
+	obj.purchaseDate = purchase.startDate || Date.now();
+	obj.expirationDate = purchase.endDate || 0;
+	return [ obj ];
+};
+
+function send(path, errorMap, cb) {
+	request.<span class="apidocCodeKeywordSpan">get</span>(path, function (error, response, body) {
+		var errorMsg = errorMap[response.statusCode];
+		if (errorMsg) {
+			return cb(new Error(errorMsg + &#x27;: &#x27; + path), response.statusCode);
+		}
+		if (error) {
+			error.message += &#x27;: &#x27; + path;
+			return cb(error);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.request.head" id="apidoc.element.in-app-purchase.request.head">
+        function <span class="apidocSignatureSpan">in-app-purchase.request.</span>head
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">head = function (options, cb) {
+	send(&#x27;HEAD&#x27;, options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.request.patch" id="apidoc.element.in-app-purchase.request.patch">
+        function <span class="apidocSignatureSpan">in-app-purchase.request.</span>patch
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">patch = function (options, cb) {
+	send(&#x27;PATCH&#x27;, options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.request.post" id="apidoc.element.in-app-purchase.request.post">
+        function <span class="apidocSignatureSpan">in-app-purchase.request.</span>post
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">post = function (options, cb) {
+	send(&#x27;POST&#x27;, options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+function send(url, content, cb) {
+	var options = {
+		encoding: null,
+		url: url,
+		body: content,
+		json: true
+	};
+	request.<span class="apidocCodeKeywordSpan">post</span>(options, function (error, res, body) {
+		return cb(error, res, body);
+	});
+}
+
+function applyResponseData(target, source) {
+	for (var key in source) {
+		if (target[key] === undefined) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.request.put" id="apidoc.element.in-app-purchase.request.put">
+        function <span class="apidocSignatureSpan">in-app-purchase.request.</span>put
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">put = function (options, cb) {
+	send(&#x27;PUT&#x27;, options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.in-app-purchase.responseData" id="apidoc.module.in-app-purchase.responseData">module in-app-purchase.responseData</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.responseData.parse" id="apidoc.element.in-app-purchase.responseData.parse">
+        function <span class="apidocSignatureSpan">in-app-purchase.responseData.</span>parse
+        <span class="apidocSignatureSpan">(response)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function (response) {
+	var res = {};
+	for (var key in response) {
+		var val = response[key];
+		var name = toCamelCase(key);
+		if (!isNaN(val) &#x26;&#x26; typeof val !== &#x27;boolean&#x27;) {
+			res[name] = parseFloat(val);	
+		} else {
+			res[name] = val;
+		}
+	}
+	return res;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	});
+};
+
+module.exports.getPurchaseData = function (purchase) {
+	if (!purchase || !purchase.purchaseToken) {
+		return null;
+	}
+	var obj = responseData.<span class="apidocCodeKeywordSpan">parse</span>(purchase);
+	obj.transactionId = purchase.purchaseToken;
+	obj.productId = purchase.sku;
+	obj.purchaseData = purchase.itemType;
+	obj.quantity = 1;
+	obj.purchaseDate = purchase.startDate || Date.now();
+	obj.expirationDate = purchase.endDate || 0;
+	return [ obj ];
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.in-app-purchase.verbose" id="apidoc.module.in-app-purchase.verbose">module in-app-purchase.verbose</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.verbose.log" id="apidoc.element.in-app-purchase.verbose.log">
+        function <span class="apidocSignatureSpan">in-app-purchase.verbose.</span>log
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">log = function () {
+	if (!enabled) {
+		return;
+	}
+	var logs = [];
+	logs.push(&#x27;[&#x27; + Date.now() + &#x27;][VERBOSE]&#x27;);
+	for (var i in arguments) {
+		logs.push(arguments[i]);
+	}
+	console.log.apply(console, logs);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			return cb(new Error(&#x27;invalid service given: &#x27; + service));
+	}
+};
+
+module.exports.validateOnce = function (service, secretOrPubKey, receipt, cb) {
+	
+	if (!secretOrPubKey &#x26;&#x26; service !== module.exports.APPLE &#x26;&#x26; service !== module.exports.WINDOWS) {
+		verbose.<span class="apidocCodeKeywordSpan">log</span>(&#x27;&#x3c;.validateOnce&#x3e;&#x27;, service, receipt);
+		return cb(new Error(&#x27;missing secret or public key for dynamic validation:&#x27; + service));
+	}
+	
+	switch (service) {
+		case module.exports.APPLE:
+			apple.validatePurchase(secretOrPubKey, receipt, cb);
+			break;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.verbose.setup" id="apidoc.element.in-app-purchase.verbose.setup">
+        function <span class="apidocSignatureSpan">in-app-purchase.verbose.</span>setup
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setup = function (config) {
+	enabled = (config &#x26;&#x26; config.verbose === true) ? true : false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
+
+### Debug Logging
+
+The module can optionally turn on verbose debug log.
+
+In order to enable the verbose logging, give the following to `.config()` **BEFORE** calling `.<span class="apidocCodeKeywordSpan
+">setup</span>([callback])`:
+
+```javascript
+var iap = require(&#x27;in-app-purchase&#x27;);
+iap.config({
+	verbose: true
+});
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.in-app-purchase.windows" id="apidoc.module.in-app-purchase.windows">module in-app-purchase.windows</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.windows.getPurchaseData" id="apidoc.element.in-app-purchase.windows.getPurchaseData">
+        function <span class="apidocSignatureSpan">in-app-purchase.windows.</span>getPurchaseData
+        <span class="apidocSignatureSpan">(purchase, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPurchaseData = function (purchase, options) {
+	if (!purchase || !purchase.purchases || !purchase.purchases.length) {
+		return null;
+	}
+	var data = [];
+	for (var i = 0, len = purchase.purchases.length; i &#x3c; len; i++) {
+		var item = purchase.purchases[i];
+		var exp = new Date(item.expirationDate).getTime();
+
+		if (options &#x26;&#x26; options.ignoreExpired &#x26;&#x26; exp &#x26;&#x26; Date.now() - exp &#x3e;= 0) {
+			// we are told to ignore expired item and it has been expired
+			continue;
+		}
+
+		var parsed = responseData.parse(item);
+		parsed.purchaseData =  new Date(item.purchaseDate).getTime();
+		parsed.expirationDate = exp;
+		parsed.quantity = 1;
+		data.push(parsed);
+	}
+	return data;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
+
+#### .isValidated(response [object])
+
+Returns a boolean.
+
+#### .<span class="apidocCodeKeywordSpan">getPurchaseData</span>(response [object], options [*object]);
+
+Returns a parsed purchase data as an array.
+
+For apple and windows, the returned array may contain more than 1 purchase data.
+
+For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
+`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.windows.readConfig" id="apidoc.element.in-app-purchase.windows.readConfig">
+        function <span class="apidocSignatureSpan">in-app-purchase.windows.</span>readConfig
+        <span class="apidocSignatureSpan">(configIn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readConfig = function (configIn) {
+	if (!configIn) {
+		// no required config
+		return;
+	}
+	verbose.setup(configIn);
+	// Apply any default settings to Request.
+	if (&#x27;requestDefaults&#x27; in configIn) {
+		request = request.defaults(configIn.requestDefaults);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+module.exports.APPLE = constants.SERVICES.APPLE;
+module.exports.GOOGLE = constants.SERVICES.GOOGLE;
+module.exports.WINDOWS = constants.SERVICES.WINDOWS;
+module.exports.AMAZON = constants.SERVICES.AMAZON;
+
+module.exports.config = function (configIn) {
+	apple.<span class="apidocCodeKeywordSpan">readConfig</span>(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.setup(configIn);
+};
+
+module.exports.setup = function (cb) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.windows.validatePurchase" id="apidoc.element.in-app-purchase.windows.validatePurchase">
+        function <span class="apidocSignatureSpan">in-app-purchase.windows.</span>validatePurchase
+        <span class="apidocSignatureSpan">(receipt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validatePurchase = function (receipt, cb) {
+	var certId;
+	var options = {
+		ignoreWhiteSpace: true,
+		errorHandler: {
+			fatalError: handleError,
+			error: handleError
+		}
+	};
+	var handleError = function (error) {
+		if (typeof error === &#x27;string&#x27;) {
+			error = new Error(error);
+		}
+		cb(error);
+	};
+	verbose.log(NAME, &#x27;Validate:&#x27;, receipt);
+	try {
+		var doc = new Parser(options).parseFromString(receipt);
+		certId = doc.firstChild.getAttribute(&#x27;CertificateId&#x27;);
+	} catch (e) {
+		verbose.log(NAME, &#x27;Failed:&#x27;, e);
+		return cb(new Error(&#x27;failed to validate purchase: &#x27; + e.message), { status: constants.VALIDATION.FAILURE, message: e.message });
+	}
+	if (!certId) {
+		verbose.log(NAME, &#x27;Failed: Invalid certificate ID&#x27;);
+		return cb(new Error(&#x27;failed to find certificate ID&#x27;), { status: constants.VALIDATION.FAILURE, message: &#x27;Invalid certificate ID
+&#x27; });
+	}
+	verbose.log(NAME, &#x27;Get public key from:&#x27;, url + certId);
+	send(url + certId, function (error, body) {
+		if (error) {
+			verbose.log(NAME, &#x27;Failed to get public key:&#x27;, (url + certId), error);
+			return cb(error);
+		}
+		var data;
+		try {
+			var publicKey = body;
+			var canonicalXML = removeWhiteSpace(doc.firstChild).toString();
+			var signature = xmlCrypto.xpath(doc, sigXPath);
+			var sig = new xmlCrypto.SignedXml();
+			sig.keyInfoProvider = new Cert(publicKey);
+			sig.loadSignature(signature.toString());
+			if (sig.checkSignature(canonicalXML)) {
+				// create purchase data
+				var items = doc.getElementsByTagName(&#x27;ProductReceipt&#x27;);
+				var purchases = [];
+				for (var i = 0, len = items.length; i &#x3c; len; i++) {
+					var item = items[i];
+					purchases.push({
+						transactionId: item.getAttribute(&#x27;Id&#x27;),
+						productId: item.getAttribute(&#x27;ProductId&#x27;),
+						purchaseDate: item.getAttribute(&#x27;PurchaseDate&#x27;),
+						expirationDate: item.getAttribute(&#x27;ExpirationDate&#x27;),
+						productType: item.getAttribute(&#x27;ProductType&#x27;),
+						appId: item.getAttribute(&#x27;AppId&#x27;)
+					});
+				}
+				// successful validation
+				data = {
+					service: constants.SERVICES.WINDOWS,
+					status: constants.VALIDATION.SUCCESS,
+					purchases: purchases
+				};
+			}
+		} catch (e) {
+			verbose.log(NAME, &#x27;Failed to validated:&#x27;, e);
+			return cb(new Error(&#x27;failed to validate purchase: &#x27; + e.message), { status: constants.VALIDATION.FAILURE, message: e.message });
+		}
+		// done
+		verbose.log(NAME, &#x27;Validation success:&#x27;, data);
+		cb(null, data);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		}
+	], cb);
+};
+
+module.exports.validate = function (service, receipt, cb) {
+	switch (service) {
+		case module.exports.APPLE:
+			apple.<span class="apidocCodeKeywordSpan">validatePurchase</span>(null, receipt, cb);
+			break;
+		case module.exports.GOOGLE:
+			google.validatePurchase(null, receipt, cb);
+			break;
+		case module.exports.WINDOWS:
+			windows.validatePurchase(receipt, cb);
+			break;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
