@@ -189,6 +189,12 @@
 
         <li>
 
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">in-app-purchase.</span>index</span>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">in-app-purchase.</span>responseData</span>
 
         </li>
@@ -471,6 +477,115 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.in-app-purchase.index">module in-app-purchase.index</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.index.config">
+            function <span class="apidocSignatureSpan">in-app-purchase.index.</span>config
+            <span class="apidocSignatureSpan">(configIn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.index.getPurchaseData">
+            function <span class="apidocSignatureSpan">in-app-purchase.index.</span>getPurchaseData
+            <span class="apidocSignatureSpan">(purchaseData, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.index.isExpired">
+            function <span class="apidocSignatureSpan">in-app-purchase.index.</span>isExpired
+            <span class="apidocSignatureSpan">(purchasedItem)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.index.isValidated">
+            function <span class="apidocSignatureSpan">in-app-purchase.index.</span>isValidated
+            <span class="apidocSignatureSpan">(response)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.index.refreshGoogleToken">
+            function <span class="apidocSignatureSpan">in-app-purchase.index.</span>refreshGoogleToken
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.index.reset">
+            function <span class="apidocSignatureSpan">in-app-purchase.index.</span>reset
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.index.setup">
+            function <span class="apidocSignatureSpan">in-app-purchase.index.</span>setup
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.index.validate">
+            function <span class="apidocSignatureSpan">in-app-purchase.index.</span>validate
+            <span class="apidocSignatureSpan">(service, receipt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.in-app-purchase.index.validateOnce">
+            function <span class="apidocSignatureSpan">in-app-purchase.index.</span>validateOnce
+            <span class="apidocSignatureSpan">(service, secretOrPubKey, receipt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">in-app-purchase.index.</span>AMAZON</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">in-app-purchase.index.</span>APPLE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">in-app-purchase.index.</span>GOOGLE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">in-app-purchase.index.</span>WINDOWS</span>
+
+        </li>
+
+    </ol></li>
+
     <li class="apidocModuleLi"><a href="#apidoc.module.in-app-purchase.request">module in-app-purchase.request</a><ol>
 
         <li>
@@ -626,21 +741,25 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
 
-### Debug Logging
-
-The module can optionally turn on verbose debug log.
-
-In order to enable the verbose logging, give the following to `.<span class="apidocCodeKeywordSpan">config</span>()` **BEFORE**
-calling `.setup([callback])`:
-
-```javascript
-var iap = require(&#x27;in-app-purchase&#x27;);
-iap.config({
-	verbose: true
+var iap = require(&#x27;./&#x27;);
+var receipt = {
+	data : {&#x22;orderId&#x22;:&#x22;GPA.1352-1234-2530-92420&#x22;,&#x22;packageName&#x22;:&#x22;com.jrtm.TestIAP3&#x22;,&#x22;productId
+&#x22;:&#x22;ide&#x22;,&#x22;purchaseTime&#x22;:1457100623859,&#x22;purchaseState&#x22;:0,&#x22;purchaseToken&#x22;:&#x22;jpjobppalfgdjgiglkpimfai
+.AO-J1OxF12taoYOPZMN6EK-uvr-bOqJ-NNSlk2wdFyfCH3EtiBXfm_Vd81cdQX4WP1xKjivx7&#x22;},
+	signature : &#x27;Edg4mfzB8/14FDtABNeNfHTiCbWfVO6ANfitBjzQ/E0IAHBTSZF2NvHPuf0kVYjdrj7gfL+jHGq2Nq0AEfV/3dvQuck+750uLMRaeZ0djxeiNLji5VQYyM78q
++2mYQrvUIijD0NYQRZdPeoYqjgcZC4ZaaIwH5tbPOE9kBzcfZf0SOo+WxnLSxRLl8C3t/U3UQkMzCjUscMK4DVQPZXohKCCQbenIDs9ey5wBHtK8MeTXuPcTMWixx+demOlEk6P6zG
+//JqQ7LRdDGvSb/4rkRMctrklUCudRGwqagbNUH84l7e1FBcUjzqtMeLppretXIRg50/eV7YowP8hXDB8JA==&#x27;
+};
+iap.<span class="apidocCodeKeywordSpan">config</span>({
+	googlePublicKeyStrLive: &#x27;MIIBIjANqhkiG98AMIIBCgKCAQEAmhqid8hOo7UZNa9dSsssvmq6LE/+LDc5+hirTuk7ZOqPo4fAqQk045SFulIdrlt+ZWsHjFokmM8zDEpKhIGxLjT
+/OPEm9so9CC6xYO2HH35sbErDFFr9QxGyGYSaeZBOCrAkjaHn1uCNP0qmPvqz7JHToGEsYoOUNln1JpIuO7xXKKB62hgsQ9KfZQIDAQAB&#x27;
 });
-```
+
+iap.setup(function (err) {
+if (err) {
+    console.error(&#x27;set up++++&#x27;, err);
+}
 ...</pre></li>
     </ul>
 
@@ -672,20 +791,20 @@ iap.config({
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
-
-#### .isValidated(response [object])
-
-Returns a boolean.
-
-#### .<span class="apidocCodeKeywordSpan">getPurchaseData</span>(response [object], options [*object]);
-
-Returns a parsed purchase data as an array.
-
-For apple and windows, the returned array may contain more than 1 purchase data.
-
-For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
-`.
+module.exports.getPurchaseData = function (purchaseData, options) {
+	if (!purchaseData || !purchaseData.service) {
+		return null;
+	}
+	switch (purchaseData.service) {
+		case module.exports.APPLE:
+			return apple.<span class="apidocCodeKeywordSpan">getPurchaseData</span>(purchaseData, options);
+		case module.exports.GOOGLE:
+			return google.getPurchaseData(purchaseData, options);
+		case module.exports.WINDOWS:
+			return windows.getPurchaseData(purchaseData, options);
+		case module.exports.AMAZON:
+			return amazon.getPurchaseData(purchaseData, options);
+		default:
 ...</pre></li>
     </ul>
 
@@ -752,20 +871,18 @@ Example For Checking Expiration Manually:
 	return false;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-
-#### .validateOnce(service [constant], secretOrPubKey [string], receipt [string or object], callback [function]);
-
-Validates an in-app-purchase receipt with a dynamically fed secret or public key.
-
-This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
-
-#### .<span class="apidocCodeKeywordSpan">isValidated</span>(response [object])
-
-Returns a boolean.
-
-#### .getPurchaseData(response [object], options [*object]);
-
-Returns a parsed purchase data as an array.
+    if (err) {
+        console.error(err);
+    }
+    iap.validate(iap.WINDOWS, windowsReceipt, function (err, windowsRes) {
+        if (err) {
+            console.error(err);
+        }
+        if (iap.<span class="apidocCodeKeywordSpan">isValidated</span>(windowsRes)) {
+            console.info(&#x22;Ok&#x22;);
+        }
+    });
+});
 ...</pre></li>
     </ul>
 
@@ -883,22 +1000,21 @@ module.exports.reset = function () {
 	], cb);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+module.exports.AMAZON = constants.SERVICES.AMAZON;
 
-&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
+module.exports.config = function (configIn) {
+	apple.readConfig(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.<span class="apidocCodeKeywordSpan">setup</span>(configIn);
+};
 
-### Debug Logging
-
-The module can optionally turn on verbose debug log.
-
-In order to enable the verbose logging, give the following to `.config()` **BEFORE** calling `.<span class="apidocCodeKeywordSpan
-">setup</span>([callback])`:
-
-```javascript
-var iap = require(&#x27;in-app-purchase&#x27;);
-iap.config({
-	verbose: true
-});
-```
+module.exports.setup = function (cb) {
+	async.parallel([
+		function (next) {
+			apple.setup(next);
+		},
 ...</pre></li>
     </ul>
 
@@ -930,20 +1046,21 @@ iap.config({
 	}
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-iap.config({
-	verbose: true
+var iap = require(&#x27;./&#x27;);
+var windowsReceipt = &#x22;&#x3c;Receipt Version=\&#x22;2.0\&#x22; CertificateId=\&#x22;A656B9B1B3AA509EEA30222E6D5E7DBDA9822DCD\&#x22; xmlns=\&#x22;http://schemas.microsoft.com/windows/2012/store/receipt\&#x22;&#x3e;&#x3c;ProductReceipt PurchasePrice=\&#x22;$0\&#x22; PurchaseDate=\&#x22;2015-12-16T09:33:59.613Z\&#x22; Id=\&#x22;1f41b1ff-210f-4be0-8db3-b746d8d87d37\&#x22; AppId=\&#x22;3906NikolayDavidenko.WPSlots2Test_mzyx4maq09rr4\&#x22; ProductId=\&#x22;coins_100\&#x22; ProductType=\&#x22;Consumable\&#x22; PublisherUserId=\&#x22;4+460VFG5YUVFMhnCg9Jxq2jAX3ikr02bdj7QJ4kpYM=\&#x22; PublisherDeviceId=\&#x22;j2zn9jpt+51yLDbq0aW3inKiKdgT7pJnFKMKiknD/ug=\&#x22; MicrosoftProductId=\&#x22;d967606b-c78a-4567-af73-894c8d852f03\&#x22; MicrosoftAppId=\&#x22;e84c1075-cd38-4ce2-ad1a-9202ce4bbde4\&#x22; /&#x3e;&#x3c;Signature xmlns=\&#x22;http://www.w3.org/2000/09/xmldsig#\&#x22;&#x3e;&#x3c;SignedInfo&#x3e;&#x3c;CanonicalizationMethod Algorithm=\&#x22;http://www.w3.org/2001/10/xml-exc-c14n#\&#x22; /&#x3e;&#x3c;SignatureMethod Algorithm=\&#x22;http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\&#x22; /&#x3e;&#x3c;Reference URI=\&#x22;\&#x22;&#x3e;&#x3c;Transforms&#x3e;&#x3c;Transform Algorithm=\&#x22;http://www.w3.org/2000/09/xmldsig#enveloped-signature\&#x22; /&#x3e;&#x3c;/Transforms&#x3e;&#x3c;DigestMethod Algorithm=\&#x22;http://www.w3.org/2001/04/xmlenc#sha256\&#x22; /&#x3e;&#x3c;DigestValue&#x3e;lL32xbIYS1hOIZEKHO713Ah3tx+7Z004n1EYBq+Wxng=&#x3c;/DigestValue&#x3e;&#x3c;/Reference&#x3e;&#x3c;/SignedInfo&#x3e;&#x3c;SignatureValue&#x3e;ajbOwQ5enxNEZNXazifkjkKiC5rQOyAL5HXIqYgRoq6S2j3cAVytnjT4mQBocmk8I/sUW1sS+xFOuWV4j1S0URrle5mHE5PZVztdodmts2QI0q1/ol1272mqfARtbc1xeY60uVc9zVzvv41GgYiBfXBAMKzN4lVU4Tra23EjyD2jN9HK1+rC1yYSB6gSuV95DqAHj6sy/f2mjEsY007zNC+CmdKtprJiH8NmJhVtDQHNQGMmg3gipige8grVVl+unPfXOF7RI+h9J2O3RGoFuKBWil+dLBkNXAbEpe5l6WSEEV31Gw0oz2NyYSbxiPef6R2ZXWukt/gBtLmRGN7rFw==&#x3c;/SignatureValue&#x3e;&#x3c;/Signature&#x3e;&#x3c;/Receipt&#x3e;&#x22;;
+
+iap.setup(function (err) {
+if (err) {
+    console.error(err);
+}
+iap.<span class="apidocCodeKeywordSpan">validate</span>(iap.WINDOWS, windowsReceipt, function (err, windowsRes) {
+    if (err) {
+        console.error(err);
+    }
+    if (iap.isValidated(windowsRes)) {
+        console.info(&#x22;Ok&#x22;);
+    }
 });
-```
-
-### Methods
-
-#### .<span class="apidocCodeKeywordSpan">validate</span>(service [constant], receipt [string or object], callback [function])
-
-Validates an in-app-purchase receipt.
-
-**NOTE 1:**
-
-constant for iOS: `iap.APPLE`
 ...</pre></li>
     </ul>
 
@@ -982,24 +1099,28 @@ constant for iOS: `iap.APPLE`
 	}
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+var rec = { data: { orderId: &#x27;GPA.1301-1377-8253-29193&#x27;, packageName: &#x27;com.mcontigo.inshake&#x27;, productId: &#x27
+;com.mcontigo.inshake.subscriptionar&#x27;, purchaseState: 0, purchaseTime: 1463617019341, purchaseToken: &#x27;iddnojaahbiakedmcodcihip
+.AO-J1OwlghdDQ5UC0f3u1NO8SVDBdECIUVVwbOB9EZ8_TKKsFZM3HTLFrhxRsuN5Q4u-kvWX8-t5LFDBDEG4W1tH_NDkmpFuBBnvBoWZhs63d14SjYa6o-PIh1P-Ku-
+zb4mPf37PO2HE9OJ0S3fQakXlNGE4_hhDBQ&#x27; }, signature: &#x27;FQdBCJexWF7hIlCeeHNhqgnyg+9Hr7YnX5Oh9nG99u/uN/UDuiTXFcK+XppzsV5vDhheGJh5aEqmn5Tdkpu2xjCBcEP67sDwcox4Bqp09yEmYo0yk2TCbhU0civw7jCFUhV6MaCOBnQg3NJd75qKTUw6zfw5DywZPaIYaO
++9A3thnasWLtgPdVfVkQfrH7UXVZWbH3gGi/PaYe2n46eUBWxQ0qxzZgsHCFoJ9siyXn580n4MbF/ArF1C3UQ4Fcx/boa4UMGU9+IDtADYJgdNzH1V71990DaapJfkeOfghTWcKvuiwptWHfSun6eDlZ1fV
++bQbf1CmHmjpxQyW5Sfaw==&#x27; };
 
-©Nobuyori Takahashi &#x3c; &#x3c;voltrue2@yahoo.com&#x3e; &#x3e;
+var pub = &#x27;MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmgGOcIrdkEZu8pJ5QJLkWQLjUI4QHBXJSxFE72pIO9+yEaLpA5Vy8VIENIK9CoAEH0SEjJRpBxWvqzLEsZ5LUqsTc4GknBP0TQczMIx4l5xXgiVFRjqZjhNVs5lggK3I8a866bkNEagm
++CW8P4xf5w+uXrFLtNjvslMCfLX3J9a32qs3Vbr6jd9yAra999XyHl9yXeyXt83tk928jtDnNNiJXt7stQ+e0srV46o7pDX8JMDI6yI4HMSs09LTpOb0fAyzgB9QXGglHqHyjKBVScYzaLFMNgCjIt4WZ6FD7Ymzo1
++S++zy/rQTqiMQ8W7OrwuKa2yPQKriZu2bSDbL0QIDAQAB&#x27;;
 
-[![Build Status](https://travis-ci.org/voltrue2/in-app-purchase.svg?branch=master)](https://travis-ci.org/voltrue2/in-app-purchase
-)
-
-A Node.js module for In-App-Purchase validation for iOS, Android, Amazon, and Windows.
-
-It can also validate multiple app&#x27;s receipt with a single back-end using `.<span class="apidocCodeKeywordSpan">validateOnce
-</span>()` that allows you to change `secret` or `public key` dynamically.
-
-### Required node.js Version
-
-`0.12.0 &#x3e;=`
-
-### Online Demo and Doc
+var iap = require(&#x27;./&#x27;);
+iap.config({ verbose: true });
+iap.setup(function () {
+	iap.<span class="apidocCodeKeywordSpan">validateOnce</span>(iap.GOOGLE, pub, rec, function () {
+		console.log(arguments);
+	});
+});
 ...</pre></li>
     </ul>
+
+
 
 
 
@@ -1056,20 +1177,20 @@ It can also validate multiple app&#x27;s receipt with a single back-end using `.
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
-
-#### .isValidated(response [object])
-
-Returns a boolean.
-
-#### .<span class="apidocCodeKeywordSpan">getPurchaseData</span>(response [object], options [*object]);
-
-Returns a parsed purchase data as an array.
-
-For apple and windows, the returned array may contain more than 1 purchase data.
-
-For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
-`.
+module.exports.getPurchaseData = function (purchaseData, options) {
+	if (!purchaseData || !purchaseData.service) {
+		return null;
+	}
+	switch (purchaseData.service) {
+		case module.exports.APPLE:
+			return apple.<span class="apidocCodeKeywordSpan">getPurchaseData</span>(purchaseData, options);
+		case module.exports.GOOGLE:
+			return google.getPurchaseData(purchaseData, options);
+		case module.exports.WINDOWS:
+			return windows.getPurchaseData(purchaseData, options);
+		case module.exports.AMAZON:
+			return amazon.getPurchaseData(purchaseData, options);
+		default:
 ...</pre></li>
     </ul>
 
@@ -1142,22 +1263,21 @@ module.exports.setup = function (cb) {
 	});
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+module.exports.AMAZON = constants.SERVICES.AMAZON;
 
-&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
+module.exports.config = function (configIn) {
+	apple.readConfig(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.<span class="apidocCodeKeywordSpan">setup</span>(configIn);
+};
 
-### Debug Logging
-
-The module can optionally turn on verbose debug log.
-
-In order to enable the verbose logging, give the following to `.config()` **BEFORE** calling `.<span class="apidocCodeKeywordSpan
-">setup</span>([callback])`:
-
-```javascript
-var iap = require(&#x27;in-app-purchase&#x27;);
-iap.config({
-	verbose: true
-});
-```
+module.exports.setup = function (cb) {
+	async.parallel([
+		function (next) {
+			apple.setup(next);
+		},
 ...</pre></li>
     </ul>
 
@@ -1270,20 +1390,20 @@ module.exports.validate = function (service, receipt, cb) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
-
-#### .isValidated(response [object])
-
-Returns a boolean.
-
-#### .<span class="apidocCodeKeywordSpan">getPurchaseData</span>(response [object], options [*object]);
-
-Returns a parsed purchase data as an array.
-
-For apple and windows, the returned array may contain more than 1 purchase data.
-
-For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
-`.
+module.exports.getPurchaseData = function (purchaseData, options) {
+	if (!purchaseData || !purchaseData.service) {
+		return null;
+	}
+	switch (purchaseData.service) {
+		case module.exports.APPLE:
+			return apple.<span class="apidocCodeKeywordSpan">getPurchaseData</span>(purchaseData, options);
+		case module.exports.GOOGLE:
+			return google.getPurchaseData(purchaseData, options);
+		case module.exports.WINDOWS:
+			return windows.getPurchaseData(purchaseData, options);
+		case module.exports.AMAZON:
+			return amazon.getPurchaseData(purchaseData, options);
+		default:
 ...</pre></li>
     </ul>
 
@@ -1356,22 +1476,21 @@ module.exports.setup = function (cb) {
 	});
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+module.exports.AMAZON = constants.SERVICES.AMAZON;
 
-&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
+module.exports.config = function (configIn) {
+	apple.readConfig(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.<span class="apidocCodeKeywordSpan">setup</span>(configIn);
+};
 
-### Debug Logging
-
-The module can optionally turn on verbose debug log.
-
-In order to enable the verbose logging, give the following to `.config()` **BEFORE** calling `.<span class="apidocCodeKeywordSpan
-">setup</span>([callback])`:
-
-```javascript
-var iap = require(&#x27;in-app-purchase&#x27;);
-iap.config({
-	verbose: true
-});
-```
+module.exports.setup = function (cb) {
+	async.parallel([
+		function (next) {
+			apple.setup(next);
+		},
 ...</pre></li>
     </ul>
 
@@ -1561,20 +1680,20 @@ module.exports.setup = function (cb) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
-
-#### .isValidated(response [object])
-
-Returns a boolean.
-
-#### .<span class="apidocCodeKeywordSpan">getPurchaseData</span>(response [object], options [*object]);
-
-Returns a parsed purchase data as an array.
-
-For apple and windows, the returned array may contain more than 1 purchase data.
-
-For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
-`.
+module.exports.getPurchaseData = function (purchaseData, options) {
+	if (!purchaseData || !purchaseData.service) {
+		return null;
+	}
+	switch (purchaseData.service) {
+		case module.exports.APPLE:
+			return apple.<span class="apidocCodeKeywordSpan">getPurchaseData</span>(purchaseData, options);
+		case module.exports.GOOGLE:
+			return google.getPurchaseData(purchaseData, options);
+		case module.exports.WINDOWS:
+			return windows.getPurchaseData(purchaseData, options);
+		case module.exports.AMAZON:
+			return amazon.getPurchaseData(purchaseData, options);
+		default:
 ...</pre></li>
     </ul>
 
@@ -1654,22 +1773,21 @@ module.exports.setup = function (cb) {
 	return cb();
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+module.exports.AMAZON = constants.SERVICES.AMAZON;
 
-&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
+module.exports.config = function (configIn) {
+	apple.readConfig(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.<span class="apidocCodeKeywordSpan">setup</span>(configIn);
+};
 
-### Debug Logging
-
-The module can optionally turn on verbose debug log.
-
-In order to enable the verbose logging, give the following to `.config()` **BEFORE** calling `.<span class="apidocCodeKeywordSpan
-">setup</span>([callback])`:
-
-```javascript
-var iap = require(&#x27;in-app-purchase&#x27;);
-iap.config({
-	verbose: true
-});
-```
+module.exports.setup = function (cb) {
+	async.parallel([
+		function (next) {
+			apple.setup(next);
+		},
 ...</pre></li>
     </ul>
 
@@ -2078,20 +2196,20 @@ module.exports.getPurchaseData = function (purchase, options) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
-
-#### .isValidated(response [object])
-
-Returns a boolean.
-
-#### .<span class="apidocCodeKeywordSpan">getPurchaseData</span>(response [object], options [*object]);
-
-Returns a parsed purchase data as an array.
-
-For apple and windows, the returned array may contain more than 1 purchase data.
-
-For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
-`.
+module.exports.getPurchaseData = function (purchaseData, options) {
+	if (!purchaseData || !purchaseData.service) {
+		return null;
+	}
+	switch (purchaseData.service) {
+		case module.exports.APPLE:
+			return apple.<span class="apidocCodeKeywordSpan">getPurchaseData</span>(purchaseData, options);
+		case module.exports.GOOGLE:
+			return google.getPurchaseData(purchaseData, options);
+		case module.exports.WINDOWS:
+			return windows.getPurchaseData(purchaseData, options);
+		case module.exports.AMAZON:
+			return amazon.getPurchaseData(purchaseData, options);
+		default:
 ...</pre></li>
     </ul>
 
@@ -2292,22 +2410,21 @@ module.exports.reset = function () {
 	}, cb);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+module.exports.AMAZON = constants.SERVICES.AMAZON;
 
-&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
+module.exports.config = function (configIn) {
+	apple.readConfig(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.<span class="apidocCodeKeywordSpan">setup</span>(configIn);
+};
 
-### Debug Logging
-
-The module can optionally turn on verbose debug log.
-
-In order to enable the verbose logging, give the following to `.config()` **BEFORE** calling `.<span class="apidocCodeKeywordSpan
-">setup</span>([callback])`:
-
-```javascript
-var iap = require(&#x27;in-app-purchase&#x27;);
-iap.config({
-	verbose: true
-});
-```
+module.exports.setup = function (cb) {
+	async.parallel([
+		function (next) {
+			apple.setup(next);
+		},
 ...</pre></li>
     </ul>
 
@@ -2417,6 +2534,385 @@ module.exports.validate = function (service, receipt, cb) {
 </div>
 
 <div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.in-app-purchase.index" id="apidoc.module.in-app-purchase.index">module in-app-purchase.index</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.index.config" id="apidoc.element.in-app-purchase.index.config">
+        function <span class="apidocSignatureSpan">in-app-purchase.index.</span>config
+        <span class="apidocSignatureSpan">(configIn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">config = function (configIn) {
+	apple.readConfig(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.setup(configIn);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+var iap = require(&#x27;./&#x27;);
+var receipt = {
+	data : {&#x22;orderId&#x22;:&#x22;GPA.1352-1234-2530-92420&#x22;,&#x22;packageName&#x22;:&#x22;com.jrtm.TestIAP3&#x22;,&#x22;productId
+&#x22;:&#x22;ide&#x22;,&#x22;purchaseTime&#x22;:1457100623859,&#x22;purchaseState&#x22;:0,&#x22;purchaseToken&#x22;:&#x22;jpjobppalfgdjgiglkpimfai
+.AO-J1OxF12taoYOPZMN6EK-uvr-bOqJ-NNSlk2wdFyfCH3EtiBXfm_Vd81cdQX4WP1xKjivx7&#x22;},
+	signature : &#x27;Edg4mfzB8/14FDtABNeNfHTiCbWfVO6ANfitBjzQ/E0IAHBTSZF2NvHPuf0kVYjdrj7gfL+jHGq2Nq0AEfV/3dvQuck+750uLMRaeZ0djxeiNLji5VQYyM78q
++2mYQrvUIijD0NYQRZdPeoYqjgcZC4ZaaIwH5tbPOE9kBzcfZf0SOo+WxnLSxRLl8C3t/U3UQkMzCjUscMK4DVQPZXohKCCQbenIDs9ey5wBHtK8MeTXuPcTMWixx+demOlEk6P6zG
+//JqQ7LRdDGvSb/4rkRMctrklUCudRGwqagbNUH84l7e1FBcUjzqtMeLppretXIRg50/eV7YowP8hXDB8JA==&#x27;
+};
+iap.<span class="apidocCodeKeywordSpan">config</span>({
+	googlePublicKeyStrLive: &#x27;MIIBIjANqhkiG98AMIIBCgKCAQEAmhqid8hOo7UZNa9dSsssvmq6LE/+LDc5+hirTuk7ZOqPo4fAqQk045SFulIdrlt+ZWsHjFokmM8zDEpKhIGxLjT
+/OPEm9so9CC6xYO2HH35sbErDFFr9QxGyGYSaeZBOCrAkjaHn1uCNP0qmPvqz7JHToGEsYoOUNln1JpIuO7xXKKB62hgsQ9KfZQIDAQAB&#x27;
+});
+
+iap.setup(function (err) {
+if (err) {
+    console.error(&#x27;set up++++&#x27;, err);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.index.getPurchaseData" id="apidoc.element.in-app-purchase.index.getPurchaseData">
+        function <span class="apidocSignatureSpan">in-app-purchase.index.</span>getPurchaseData
+        <span class="apidocSignatureSpan">(purchaseData, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPurchaseData = function (purchaseData, options) {
+	if (!purchaseData || !purchaseData.service) {
+		return null;
+	}
+	switch (purchaseData.service) {
+		case module.exports.APPLE:
+			return apple.getPurchaseData(purchaseData, options);
+		case module.exports.GOOGLE:
+			return google.getPurchaseData(purchaseData, options);
+		case module.exports.WINDOWS:
+			return windows.getPurchaseData(purchaseData, options);
+		case module.exports.AMAZON:
+			return amazon.getPurchaseData(purchaseData, options);
+		default:
+			return null;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+module.exports.getPurchaseData = function (purchaseData, options) {
+	if (!purchaseData || !purchaseData.service) {
+		return null;
+	}
+	switch (purchaseData.service) {
+		case module.exports.APPLE:
+			return apple.<span class="apidocCodeKeywordSpan">getPurchaseData</span>(purchaseData, options);
+		case module.exports.GOOGLE:
+			return google.getPurchaseData(purchaseData, options);
+		case module.exports.WINDOWS:
+			return windows.getPurchaseData(purchaseData, options);
+		case module.exports.AMAZON:
+			return amazon.getPurchaseData(purchaseData, options);
+		default:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.index.isExpired" id="apidoc.element.in-app-purchase.index.isExpired">
+        function <span class="apidocSignatureSpan">in-app-purchase.index.</span>isExpired
+        <span class="apidocSignatureSpan">(purchasedItem)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isExpired = function (purchasedItem) {
+	if (!purchasedItem || !purchasedItem.transactionId) {
+		throw new Error(&#x27;invalid purchased item given:\n&#x27; + JSON.stringify(purchasedItem));
+	}
+	if (purchasedItem.cancellationDate) {
+		// it has been cancelled
+		return true;
+	}
+	if (!purchasedItem.expirationDate) {
+		// there is no exipiration date with this item
+		return false;
+	}
+	if (Date.now() - purchasedItem.expirationDate &#x3e;= 0) {
+		return true;
+	}
+	// has not exipired yet
+	return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+                ]
+            */
+        }
+    });
+});
+```
+
+#### .<span class="apidocCodeKeywordSpan">isExpired</span>(purchaseDataItem [object])
+
+Returns `true` if a purchased item has been expired.
+
+**NOTE:** This function is for `windows` and `apple` iTunes (recurring subscription only). This can also be used for `google` subscriptions
+ since you provide google play store api information.
+
+
+Example For Checking Expiration Manually:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.index.isValidated" id="apidoc.element.in-app-purchase.index.isValidated">
+        function <span class="apidocSignatureSpan">in-app-purchase.index.</span>isValidated
+        <span class="apidocSignatureSpan">(response)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isValidated = function (response) {
+	if (response &#x26;&#x26; response.status === constants.VALIDATION.SUCCESS) {
+		return true;
+	}
+	return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (err) {
+        console.error(err);
+    }
+    iap.validate(iap.WINDOWS, windowsReceipt, function (err, windowsRes) {
+        if (err) {
+            console.error(err);
+        }
+        if (iap.<span class="apidocCodeKeywordSpan">isValidated</span>(windowsRes)) {
+            console.info(&#x22;Ok&#x22;);
+        }
+    });
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.index.refreshGoogleToken" id="apidoc.element.in-app-purchase.index.refreshGoogleToken">
+        function <span class="apidocSignatureSpan">in-app-purchase.index.</span>refreshGoogleToken
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">refreshGoogleToken = function (cb) {
+	
+	google.refreshToken(cb);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+For apple and windows, the returned array may contain more than 1 purchase data.
+
+For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
+`.
+
+For Google Play purchases (recurring subscription only), each purchase data in the array contains `expirationDate` only if you provide
+ google play store information.
+
+#### .<span class="apidocCodeKeywordSpan">refreshGoogleToken</span>(callback [function]);
+
+**For Android only!**
+
+Returns a callback function with `error` and `response` as arguments.
+
+This method should be used when trying to query the Google Play Store API, but the access token is no longer valid.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.index.reset" id="apidoc.element.in-app-purchase.index.reset">
+        function <span class="apidocSignatureSpan">in-app-purchase.index.</span>reset
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function () {
+	// resets google setup
+	google.reset();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	google.refreshToken(cb);
+
+};
+
+// test use only
+module.exports.reset = function () {
+	// resets google setup
+	google.<span class="apidocCodeKeywordSpan">reset</span>();
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.index.setup" id="apidoc.element.in-app-purchase.index.setup">
+        function <span class="apidocSignatureSpan">in-app-purchase.index.</span>setup
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setup = function (cb) {
+	async.parallel([
+		function (next) {
+			apple.setup(next);
+		},
+		function (next) {
+			google.setup(next);
+		},
+		function (next) {
+			amazon.setup(next);
+		}
+	], cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+module.exports.AMAZON = constants.SERVICES.AMAZON;
+
+module.exports.config = function (configIn) {
+	apple.readConfig(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.<span class="apidocCodeKeywordSpan">setup</span>(configIn);
+};
+
+module.exports.setup = function (cb) {
+	async.parallel([
+		function (next) {
+			apple.setup(next);
+		},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.index.validate" id="apidoc.element.in-app-purchase.index.validate">
+        function <span class="apidocSignatureSpan">in-app-purchase.index.</span>validate
+        <span class="apidocSignatureSpan">(service, receipt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validate = function (service, receipt, cb) {
+	switch (service) {
+		case module.exports.APPLE:
+			apple.validatePurchase(null, receipt, cb);
+			break;
+		case module.exports.GOOGLE:
+			google.validatePurchase(null, receipt, cb);
+			break;
+		case module.exports.WINDOWS:
+			windows.validatePurchase(receipt, cb);
+			break;
+		case module.exports.AMAZON:
+			amazon.validatePurchase(null, receipt, cb);
+			break;
+		default:
+			return cb(new Error(&#x27;invalid service given: &#x27; + service));
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var iap = require(&#x27;./&#x27;);
+var windowsReceipt = &#x22;&#x3c;Receipt Version=\&#x22;2.0\&#x22; CertificateId=\&#x22;A656B9B1B3AA509EEA30222E6D5E7DBDA9822DCD\&#x22; xmlns=\&#x22;http://schemas.microsoft.com/windows/2012/store/receipt\&#x22;&#x3e;&#x3c;ProductReceipt PurchasePrice=\&#x22;$0\&#x22; PurchaseDate=\&#x22;2015-12-16T09:33:59.613Z\&#x22; Id=\&#x22;1f41b1ff-210f-4be0-8db3-b746d8d87d37\&#x22; AppId=\&#x22;3906NikolayDavidenko.WPSlots2Test_mzyx4maq09rr4\&#x22; ProductId=\&#x22;coins_100\&#x22; ProductType=\&#x22;Consumable\&#x22; PublisherUserId=\&#x22;4+460VFG5YUVFMhnCg9Jxq2jAX3ikr02bdj7QJ4kpYM=\&#x22; PublisherDeviceId=\&#x22;j2zn9jpt+51yLDbq0aW3inKiKdgT7pJnFKMKiknD/ug=\&#x22; MicrosoftProductId=\&#x22;d967606b-c78a-4567-af73-894c8d852f03\&#x22; MicrosoftAppId=\&#x22;e84c1075-cd38-4ce2-ad1a-9202ce4bbde4\&#x22; /&#x3e;&#x3c;Signature xmlns=\&#x22;http://www.w3.org/2000/09/xmldsig#\&#x22;&#x3e;&#x3c;SignedInfo&#x3e;&#x3c;CanonicalizationMethod Algorithm=\&#x22;http://www.w3.org/2001/10/xml-exc-c14n#\&#x22; /&#x3e;&#x3c;SignatureMethod Algorithm=\&#x22;http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\&#x22; /&#x3e;&#x3c;Reference URI=\&#x22;\&#x22;&#x3e;&#x3c;Transforms&#x3e;&#x3c;Transform Algorithm=\&#x22;http://www.w3.org/2000/09/xmldsig#enveloped-signature\&#x22; /&#x3e;&#x3c;/Transforms&#x3e;&#x3c;DigestMethod Algorithm=\&#x22;http://www.w3.org/2001/04/xmlenc#sha256\&#x22; /&#x3e;&#x3c;DigestValue&#x3e;lL32xbIYS1hOIZEKHO713Ah3tx+7Z004n1EYBq+Wxng=&#x3c;/DigestValue&#x3e;&#x3c;/Reference&#x3e;&#x3c;/SignedInfo&#x3e;&#x3c;SignatureValue&#x3e;ajbOwQ5enxNEZNXazifkjkKiC5rQOyAL5HXIqYgRoq6S2j3cAVytnjT4mQBocmk8I/sUW1sS+xFOuWV4j1S0URrle5mHE5PZVztdodmts2QI0q1/ol1272mqfARtbc1xeY60uVc9zVzvv41GgYiBfXBAMKzN4lVU4Tra23EjyD2jN9HK1+rC1yYSB6gSuV95DqAHj6sy/f2mjEsY007zNC+CmdKtprJiH8NmJhVtDQHNQGMmg3gipige8grVVl+unPfXOF7RI+h9J2O3RGoFuKBWil+dLBkNXAbEpe5l6WSEEV31Gw0oz2NyYSbxiPef6R2ZXWukt/gBtLmRGN7rFw==&#x3c;/SignatureValue&#x3e;&#x3c;/Signature&#x3e;&#x3c;/Receipt&#x3e;&#x22;;
+
+iap.setup(function (err) {
+if (err) {
+    console.error(err);
+}
+iap.<span class="apidocCodeKeywordSpan">validate</span>(iap.WINDOWS, windowsReceipt, function (err, windowsRes) {
+    if (err) {
+        console.error(err);
+    }
+    if (iap.isValidated(windowsRes)) {
+        console.info(&#x22;Ok&#x22;);
+    }
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.in-app-purchase.index.validateOnce" id="apidoc.element.in-app-purchase.index.validateOnce">
+        function <span class="apidocSignatureSpan">in-app-purchase.index.</span>validateOnce
+        <span class="apidocSignatureSpan">(service, secretOrPubKey, receipt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validateOnce = function (service, secretOrPubKey, receipt, cb) {
+	
+	if (!secretOrPubKey &#x26;&#x26; service !== module.exports.APPLE &#x26;&#x26; service !== module.exports.WINDOWS) {
+		verbose.log(&#x27;&#x3c;.validateOnce&#x3e;&#x27;, service, receipt);
+		return cb(new Error(&#x27;missing secret or public key for dynamic validation:&#x27; + service));
+	}
+	
+	switch (service) {
+		case module.exports.APPLE:
+			apple.validatePurchase(secretOrPubKey, receipt, cb);
+			break;
+		case module.exports.GOOGLE:
+			google.validatePurchase(secretOrPubKey, receipt, cb);
+			break;
+		case module.exports.WINDOWS:
+			windows.validatePurchase(receipt, cb);
+			break;
+		case module.exports.AMAZON:
+			amazon.validatePurchase(secretOrPubKey, receipt, cb);
+			break;
+		default:
+			verbose.log(&#x27;&#x3c;.validateOnce&#x3e;&#x27;, secretOrPubKey, receipt);
+			return cb(new Error(&#x27;invalid service given: &#x27; + service));
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var rec = { data: { orderId: &#x27;GPA.1301-1377-8253-29193&#x27;, packageName: &#x27;com.mcontigo.inshake&#x27;, productId: &#x27
+;com.mcontigo.inshake.subscriptionar&#x27;, purchaseState: 0, purchaseTime: 1463617019341, purchaseToken: &#x27;iddnojaahbiakedmcodcihip
+.AO-J1OwlghdDQ5UC0f3u1NO8SVDBdECIUVVwbOB9EZ8_TKKsFZM3HTLFrhxRsuN5Q4u-kvWX8-t5LFDBDEG4W1tH_NDkmpFuBBnvBoWZhs63d14SjYa6o-PIh1P-Ku-
+zb4mPf37PO2HE9OJ0S3fQakXlNGE4_hhDBQ&#x27; }, signature: &#x27;FQdBCJexWF7hIlCeeHNhqgnyg+9Hr7YnX5Oh9nG99u/uN/UDuiTXFcK+XppzsV5vDhheGJh5aEqmn5Tdkpu2xjCBcEP67sDwcox4Bqp09yEmYo0yk2TCbhU0civw7jCFUhV6MaCOBnQg3NJd75qKTUw6zfw5DywZPaIYaO
++9A3thnasWLtgPdVfVkQfrH7UXVZWbH3gGi/PaYe2n46eUBWxQ0qxzZgsHCFoJ9siyXn580n4MbF/ArF1C3UQ4Fcx/boa4UMGU9+IDtADYJgdNzH1V71990DaapJfkeOfghTWcKvuiwptWHfSun6eDlZ1fV
++bQbf1CmHmjpxQyW5Sfaw==&#x27; };
+
+var pub = &#x27;MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmgGOcIrdkEZu8pJ5QJLkWQLjUI4QHBXJSxFE72pIO9+yEaLpA5Vy8VIENIK9CoAEH0SEjJRpBxWvqzLEsZ5LUqsTc4GknBP0TQczMIx4l5xXgiVFRjqZjhNVs5lggK3I8a866bkNEagm
++CW8P4xf5w+uXrFLtNjvslMCfLX3J9a32qs3Vbr6jd9yAra999XyHl9yXeyXt83tk928jtDnNNiJXt7stQ+e0srV46o7pDX8JMDI6yI4HMSs09LTpOb0fAyzgB9QXGglHqHyjKBVScYzaLFMNgCjIt4WZ6FD7Ymzo1
++S++zy/rQTqiMQ8W7OrwuKa2yPQKriZu2bSDbL0QIDAQAB&#x27;;
+
+var iap = require(&#x27;./&#x27;);
+iap.config({ verbose: true });
+iap.setup(function () {
+	iap.<span class="apidocCodeKeywordSpan">validateOnce</span>(iap.GOOGLE, pub, rec, function () {
+		console.log(arguments);
+	});
+});
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.in-app-purchase.request" id="apidoc.module.in-app-purchase.request">module in-app-purchase.request</a></h1>
 
 
@@ -2478,9 +2974,9 @@ module.exports.validate = function (service, receipt, cb) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 	obj.quantity = 1;
-	obj.purchaseDate = purchase.startDate || Date.now();
-	obj.expirationDate = purchase.endDate || 0;
-	return [ obj ];
+	obj.purchaseDate = purchase.purchaseDate || Date.now();
+	obj.expirationDate = purchase.cancelDate || 0;
+	return [obj];
 };
 
 function send(path, errorMap, cb) {
@@ -2599,21 +3095,21 @@ function applyResponseData(target, source) {
 	return res;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-	});
-};
-
-module.exports.getPurchaseData = function (purchase) {
-	if (!purchase || !purchase.purchaseToken) {
-		return null;
-	}
-	var obj = responseData.<span class="apidocCodeKeywordSpan">parse</span>(purchase);
-	obj.transactionId = purchase.purchaseToken;
-	obj.productId = purchase.sku;
-	obj.purchaseData = purchase.itemType;
-	obj.quantity = 1;
-	obj.purchaseDate = purchase.startDate || Date.now();
-	obj.expirationDate = purchase.endDate || 0;
-	return [ obj ];
+		}
+		if (error) {
+			error.message += &#x27;: &#x27; + path;
+			return cb(error);
+		}
+		var res = null;
+		try {
+			res = JSON.<span class="apidocCodeKeywordSpan">parse</span>(body);
+			res.status = 0;
+			res.service = constants.SERVICES.AMAZON;
+		}
+		catch (exc) {
+			exc.message += &#x27;: &#x27; + path;
+			return cb(exc);
+		}
 ...</pre></li>
     </ul>
 
@@ -2674,22 +3170,21 @@ module.exports.validateOnce = function (service, secretOrPubKey, receipt, cb) {
 	enabled = (config &#x26;&#x26; config.verbose === true) ? true : false;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+module.exports.AMAZON = constants.SERVICES.AMAZON;
 
-&#x3c;a href=&#x22;http://iap.gracenode.org&#x22; target=&#x22;_blank&#x22;&#x3e;Online Demo&#x3c;/a&#x3e;
+module.exports.config = function (configIn) {
+	apple.readConfig(configIn);
+	google.readConfig(configIn);
+	windows.readConfig(configIn);
+	amazon = amazonManager.create(configIn);
+	verbose.<span class="apidocCodeKeywordSpan">setup</span>(configIn);
+};
 
-### Debug Logging
-
-The module can optionally turn on verbose debug log.
-
-In order to enable the verbose logging, give the following to `.config()` **BEFORE** calling `.<span class="apidocCodeKeywordSpan
-">setup</span>([callback])`:
-
-```javascript
-var iap = require(&#x27;in-app-purchase&#x27;);
-iap.config({
-	verbose: true
-});
-```
+module.exports.setup = function (cb) {
+	async.parallel([
+		function (next) {
+			apple.setup(next);
+		},
 ...</pre></li>
     </ul>
 
@@ -2731,20 +3226,20 @@ iap.config({
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-This is usefuly when you need to validate multiple apps&#x27; receipts with a single back-end.
-
-#### .isValidated(response [object])
-
-Returns a boolean.
-
-#### .<span class="apidocCodeKeywordSpan">getPurchaseData</span>(response [object], options [*object]);
-
-Returns a parsed purchase data as an array.
-
-For apple and windows, the returned array may contain more than 1 purchase data.
-
-For Windows purchase data and Apple iTunes (recurring subscription only), each purchase data in the array contains `expirationDate
-`.
+module.exports.getPurchaseData = function (purchaseData, options) {
+	if (!purchaseData || !purchaseData.service) {
+		return null;
+	}
+	switch (purchaseData.service) {
+		case module.exports.APPLE:
+			return apple.<span class="apidocCodeKeywordSpan">getPurchaseData</span>(purchaseData, options);
+		case module.exports.GOOGLE:
+			return google.getPurchaseData(purchaseData, options);
+		case module.exports.WINDOWS:
+			return windows.getPurchaseData(purchaseData, options);
+		case module.exports.AMAZON:
+			return amazon.getPurchaseData(purchaseData, options);
+		default:
 ...</pre></li>
     </ul>
 
