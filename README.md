@@ -1,6 +1,6 @@
 # npmdoc-in-app-purchase
 
-#### api documentation for  [in-app-purchase (v1.3.1)](https://github.com/voltrue2/in-app-purchase)  [![npm package](https://img.shields.io/npm/v/npmdoc-in-app-purchase.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-in-app-purchase) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-in-app-purchase.svg)](https://travis-ci.org/npmdoc/node-npmdoc-in-app-purchase)
+#### basic api documentation for  [in-app-purchase (v1.3.1)](https://github.com/voltrue2/in-app-purchase)  [![npm package](https://img.shields.io/npm/v/npmdoc-in-app-purchase.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-in-app-purchase) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-in-app-purchase.svg)](https://travis-ci.org/npmdoc/node-npmdoc-in-app-purchase)
 
 #### In-App-Purchase validation and subscription management for iOS, Android, Amazon, and Windows
 
@@ -102,7 +102,8 @@
     "scripts": {
         "test": "./precommit.sh"
     },
-    "version": "1.3.1"
+    "version": "1.3.1",
+    "bin": {}
 }
 ```
 
